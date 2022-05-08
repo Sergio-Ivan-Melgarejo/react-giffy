@@ -1,0 +1,46 @@
+.card{
+    height: 100%;
+    position: relative;
+    background-color: var(--bg-color) !important;
+}
+
+.container-card{
+    background-color: var(--bg-card-color);
+    height: 250px;
+    transition: transform .4s ease-in;
+    position: relative;
+    overflow: hidden;
+}
+
+.container-card img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.gif{
+    text-transform: uppercase;
+    background-color: #282c34;
+    color: rgb(185, 176, 46);
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    padding: 5px 10px;
+    border-radius: 10px;
+    transition: transform .5s linear, color .5s ease-in;
+    z-index: 10;
+}
+
+.card:hover > .container-card img{
+    object-fit: contain;
+}
+
+.card:hover > .container-card .gif{
+    transform: translateX(150%);
+    color: #000;
+}
+
+.card .container-card.fullPage .gif{
+    font-size: 2em;
+}

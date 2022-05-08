@@ -1,0 +1,116 @@
+.bg-loader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.home .bg-loader{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  margin-top: 3em;
+}
+
+
+/* 
+.bg-loader .text{
+    color: #fff;
+    transform: translateY(300%) translate(-25%);
+}
+
+.bg-loader .circle{
+    height: 2em;
+    width: 2em;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    animation: loading 1.5s infinite linear;
+    transform: translate(-100%);
+    transition: color .5s;
+}
+
+.bg-loader .circle2{
+    animation-delay: .5s;
+}
+
+.bg-loader .circle3{
+    animation-delay: 1s;
+}
+
+@keyframes loading {
+    0%{
+        transform: translate(-100%) translateY(0%) scale(1.1);
+        background-color: #ffffff;
+        z-index: 3;
+    }
+    16%{
+        transform: translate(0%) translateY(0%) scale(.9);
+        background-color: #888;
+        z-index: 3;
+    }
+    32%{
+        transform: translate(100%) translateY(0%) scale(1.1);
+        background-color: #ffffff;
+        z-index: 3;
+    }
+    48%{
+        transform: translate(50%) translateY(-50%) scale(.9);
+        background-color: #888;
+        z-index: 2;
+    }
+    64%{
+        transform: translate(0%) translateY(-100%) scale(1.1);
+        background-color: #ffffff;
+        z-index: 2;
+    }
+    80%{
+        transform: translate(-50%) translateY(-50%) scale(.9);
+        background-color: #888;
+        z-index: 1;
+    }
+    100%{
+        transform: translate(-100%) translateY(0%) scale(1.1);
+        background-color: #ffffff;
+        z-index: 1;
+    }
+} */
+
+
+.lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 8px solid #fff;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #fff transparent transparent transparent;
+  }
+  .lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+  }
+  .lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+  }
+  .lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+  }
+  @keyframes lds-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  

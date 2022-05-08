@@ -1,0 +1,116 @@
+.home{
+    height: 100%;
+    background-color: var(--bg-card-color);
+}
+
+.home .h1{
+    color: var(--text-color);
+}
+
+.home .h1 span,
+.home .h4{
+    color: var(--color);
+    font-weight: bolder;
+}
+
+/* 
+@media screen  and (min-width:768px){
+    .home{   
+        background-image: url(../logo/logo_small_icon_only_inverted.png), url(../logo/logo_small_icon_only_inverted.png);
+        background-repeat: no-repeat , no-repeat;
+        background-attachment: fixed, fixed;
+        background-size: 100px, 100px;
+        background-position: 10% 15%, 90% 15%;
+    }
+
+    .dark .home{
+        background-image: url(../logo/logo_small_icon_only.png),url(../logo/logo_small_icon_only.png);
+    }
+}
+
+@media screen  and (min-width:992px){
+    .home{   
+        background-image: url(../logo/logo_small_icon_only_inverted.png), url(../logo/logo_small_icon_only_inverted.png);
+    }
+
+    .dark .home{
+        background-image: url(../logo/logo_small_icon_only.png),url(../logo/logo_small_icon_only.png);
+    }
+} */
+
+.searched,
+.recommended{
+    background-color: var(--bg-color);
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.recommended{
+    margin-right: auto;
+}
+
+.searched{
+    margin-left: auto;
+}
+
+.home .ul .li{
+    list-style: none;
+}
+
+.home .ul .rellenar{
+    min-height: 2.6em;
+    cursor:auto;
+}
+
+.home .ul .li div,
+.home .ul .li a{
+    min-height: 2.6em;
+    background-color: var(--bg-card-color);
+    color: var(--text-color);
+}
+
+.home .ul{
+    list-style: none;
+}
+
+.home .recommended .ul .li{
+    transform: translate(-100%);
+    animation: appearR .8s forwards;
+}
+.home .recommended .ul .li-1{animation-delay: .2s;}
+.home .recommended .ul .li-2{animation-delay: .4s;}
+.home .recommended .ul .li-3{animation-delay: .6s;}
+.home .recommended .ul .li-4{animation-delay: .8s;}
+
+@keyframes appearR {
+    0%{
+        transform: translate(-100%);
+    }
+    100%{
+        transform: translate(0%);
+    }
+}
+
+.home .searched .ul .li{
+    transform: translate(100%);
+    animation: appearS .8s forwards;
+}
+
+.home .searched .ul .li-1{animation-delay: .2s;}
+.home .searched .ul .li-2{animation-delay: .4s;}
+.home .searched .ul .li-3{animation-delay: .6s;}
+.home .searched .ul .li-4{animation-delay: .8s;}
+
+@keyframes appearS {
+    0%{
+        transform: translate(100%);
+    }
+    100%{
+        transform: translate(0%);
+    }
+}
+
+.home .h5{
+    color: var(--text-color-2);
+    background-color: var(--color);
+}

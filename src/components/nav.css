@@ -1,0 +1,15 @@
+.navbar{
+    background-color: var(--bg-card-color);
+}
+
+.button-bars{
+    width: 25px;
+}
+
+.nav-logo{
+    border: none !important;
+}
+
+.navbar .height-btn{
+    height: 100% ;
+}
