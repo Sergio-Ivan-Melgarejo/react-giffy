@@ -1,16 +1,13 @@
 import { API_URL,API_KEY } from "./settings";
 
-const getGifs = (keyword) => {
-    if(keyword.search === "") keyword.search = "memes"; 
-
-    const apiURL =`${API_URL}/gifs/search?api_key=${API_KEY}&q=${keyword.search}&limit=${keyword.limit}&offset=0&rating=g&lang=${keyword.lang}`;
+const getGifs = ({limit= 25,search= "memes",lang="en",page = 0}) => {
+    const apiURL =`${API_URL}/gifs/search?api_key=${API_KEY}&q=${search}&limit=${limit}&offset=${page * limit}&rating=g&lang=${lang}`;
 
     return fetch(apiURL)
         .then(res => res.json())
         .then(res => {
             if (Array.isArray(res.data)) {
                 const data = res.data;
-                console.log(data)
                 const gifs = data.map(dataGifs => {
                     return {
                         img: dataGifs.images.downsized_medium.url,

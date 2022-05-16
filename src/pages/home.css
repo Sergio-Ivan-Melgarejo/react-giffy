@@ -7,12 +7,6 @@
     color: var(--text-color);
 }
 
-.home .h1 span,
-.home .h4{
-    color: var(--color);
-    font-weight: bolder;
-}
-
 /* 
 @media screen  and (min-width:768px){
     .home{   
@@ -39,7 +33,8 @@
 } */
 
 .searched,
-.recommended{
+.recommended,
+.trends{
     background-color: var(--bg-color);
     justify-content: space-between;
     overflow: hidden;
@@ -110,7 +105,7 @@
     }
 }
 
-.home .h5{
+.last-search{
     color: var(--text-color-2);
     background-color: var(--color);
 }

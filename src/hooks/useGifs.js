@@ -2,22 +2,27 @@ import {useState,useEffect, useContext} from 'react';
 import getGifs from '../services/getGifs';
 import GifsContext from '../context/GifsContext';
 
+const INITIAL_PAGE = 0;
+
+// hook para busqueda de gifs atraves de keyword
 const useGifs = ({keyword} = {keyword:null}) => {
     const [loading, setLoading] = useState(false);
     const {gifs, setGifs} = useContext(GifsContext);
-    // const [gifs, setGifs] = useState([]);
-    const [datalocalStorage, setDataLocalStorage] = useState(false)
+    const [page, setPage] = useState(INITIAL_PAGE);
+    const [loadingNextPage, setLoadingNextPage] = useState(false)
 
-    useEffect(() => {
+    
     // recuperamos la keyword del localStorage
     const getLocalStorage = localStorage.getItem("LastKeyword");
-    if(getLocalStorage) setDataLocalStorage(true);
+    const keywordToUse = keyword || getLocalStorage || "random";
 
-    const keywordToUse = keyword || getLocalStorage
+    // para obtener los gifs
+    useEffect(() => {
     if (keywordToUse !== null){
-      setLoading(true)
+      setLoading(true);
 
-      const limit = keyword ? 20 : 4;
+      // alterar para poder cambiarlo desde menu (tambien el idioma)
+      const limit = keyword ? 24 : 4;
 
       getGifs({search:keywordToUse, limit,lang:"en"})
       .then(gifs =>{
@@ -32,10 +37,23 @@ const useGifs = ({keyword} = {keyword:null}) => {
           }
           });
     }
-    
-    }, [keyword, setGifs])
+    }, [keyword, keywordToUse, setGifs])
 
-   return {loading,gifs,datalocalStorage}
+    // para el cambio de pagina
+    useEffect(() => {
+      if(page === INITIAL_PAGE) return
+        setLoadingNextPage(true);
+        getGifs({search:keywordToUse,page})
+        .then(nextGifs => {
+          setGifs(prevGifs => prevGifs.concat(nextGifs))
+          setLoadingNextPage(false)
+        })
+
+    }, [ page, keywordToUse, setGifs ])
+    
+    // datalocalStorage = para decidir si mostrar en home "last search"
+    // setPage,loadingNextPage = para la paginacion
+    return {loading,gifs,setPage,loadingNextPage}
 }
 
 export default useGifs
