@@ -13,8 +13,8 @@ import { GifsContextProvider } from './context/GifsContext';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-import ListGifs from './components/ListGifs';
 import Detail from './pages/Detail';
+import Search from 'pages/Search';
 
 const dataInitial = {
   limit: "10",
@@ -36,7 +36,7 @@ function App() {
             <Route component={Home} 
               path="/"
             />
-            <Route component={ListGifs} 
+            <Route component={Search} 
               path="/search/:keyword"
             />
             <Route component={Detail} 

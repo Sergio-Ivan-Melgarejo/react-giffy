@@ -3,7 +3,7 @@ import useGlobalGifs from '../hooks/useGlobalGifs'
 import "./detail.css"
 
 const Detail = ({params}) => {
-  const gifs =  useGlobalGifs() 
+  const gifs = useGlobalGifs() 
   console.log(gifs)
   
   const gif = gifs.find(singleGif => singleGif.id === params.id)

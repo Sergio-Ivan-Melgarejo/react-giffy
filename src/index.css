@@ -1,17 +1,17 @@
 :root{
-  --bg-color:#dcdcdd;
-  --bg-card-color:#F9F3F3;
+  --bg-color:#F9F3F3;
+  --bg-card-color:rgb(235, 235, 235);
   --color:#FFD369;
-  --text-color:#222831;
-  --text-color-2:#FFF;
+  --text-color:#151515;
+  --text-color-2:#F9F3F3;
 }
 
 .dark{
-  --bg-color:#222831;
-  --bg-card-color:#393E46;
+  --bg-color:#151515;
+  --bg-card-color:#222;
   --color:#FFD369;
-  --text-color:#EEEEEE;
-  --text-color-2:#000;
+  --text-color:#F9F3F3;
+  --text-color-2:#151515;
 }
 
 body {
@@ -40,4 +40,8 @@ code {
 .btn-outline-warning:hover{
   color: var(--text-color-2) !important;
   background-color: var(--color) !important;
+}
+
+.color{
+  color: var(--color);
 }

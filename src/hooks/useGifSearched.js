@@ -1,5 +1,4 @@
-import React from 'react'
-
+// hook para las historial de busqueda
 const useGifSearched = () => {
     const gifSearch = [];
     let getSearched = localStorage.getItem("searched-history");
@@ -9,10 +8,6 @@ const useGifSearched = () => {
 
     for(let i=0; i < 5 ;i++){
         if(getSearched[i]){
-          if(getSearched[i].includes("%")) {
-            getSearched[i] = getSearched[i].replaceAll("%20"," ");
-            gifSearch.push(getSearched[i])
-          }
           gifSearch.push(getSearched[i])
         }
         else gifSearch.push(" ")

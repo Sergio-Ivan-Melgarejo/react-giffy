@@ -1,8 +1,9 @@
 import React,{useState} from 'react'
 
 import "./nav.css"
-import buttonBars from "../bootstrap/bars-solid.svg"
-import logoSVG from "../logo/logo.svg"
+import buttonBars from "bootstrap/bars-solid.svg"
+import logoSVGLight from "logo/logo_small_icon_only.png"
+import logoSVGDark from "logo/logo_small_icon_only_inverted.png"
 
 import { Link, useLocation } from 'wouter';
 
@@ -10,6 +11,7 @@ const Nav = ({dataApp,setDataApp}) => {
     const [keyword, setKeyword] = useState("");
     const [paht,pushLocation] = useLocation();
 
+    const dark = true;
     // const handleSubmit = (e) => e.preventDefault();
 
     const handleSubmitSearch = (e) =>{
@@ -31,8 +33,8 @@ const Nav = ({dataApp,setDataApp}) => {
         <nav className="navbar navbar-expand-lg border-bottom border-warning">
             <div className="container-fluid">
                 <Link className="" to="/" >
-                    <button className="btn btn-outline-warning nav-logo" >
-                        <img className='' src={logoSVG} alt="logo"/>
+                    <button className="nav-logo" >
+                        <img className='logo' src={dark ? logoSVGDark : logoSVGLight} alt="logo"/>
                     </button>
                 </Link>
                 <button className="navbar-toggler btn-warning button-navbar" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
