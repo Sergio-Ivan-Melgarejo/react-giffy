@@ -24,8 +24,6 @@ const Home = () => {
 
   return (
     <header className='home py-1 text-light'>
-        <h1 className="h1 my-3 my-md-5 py-2 px-3">App <span className='color'>Giffy</span></h1>
-
         <div className='row justify-content-between gap-3 m-3 mx-md-0'>
           <section className='recommended text-md-start col-12 col-md-8 col-lg-5 p-2'>
             <h2 className='h4 ps-3 text-uppercase'><span className='color'>gif -</span>  Recommended</h2>

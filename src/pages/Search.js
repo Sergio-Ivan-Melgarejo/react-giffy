@@ -1,6 +1,7 @@
-import ListGifs from 'components/ListGifs'
-import useGifs from 'hooks/useGifs'
-import React from 'react'
+import ListGifs from 'components/ListGifs';
+import useGifs from 'hooks/useGifs';
+import React from 'react';
+import "./search.css";
 
 // decodeURI reemplaza los %20 por espacios en blanco
 const Search = ({params}) => {
@@ -18,4 +19,4 @@ const Search = ({params}) => {
   )
 }
 
-export default Search
+export default Search;

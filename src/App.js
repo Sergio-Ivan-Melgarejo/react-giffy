@@ -1,9 +1,7 @@
+import {useState} from "react"
 import './App.css';
-import {useState} from "react";
 
 // Librerias
-import 'bootstrap';
-import './bootstrap/bootstrap.min.css';
 import {Route} from 'wouter';
 
 // Context
@@ -15,9 +13,9 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Detail from './pages/Detail';
 import Search from 'pages/Search';
+import FormSearch from 'components/FormSearch';
 
 const dataInitial = {
-  limit: "10",
   lang: "en",
   rating: "g",
   dark: true
@@ -28,8 +26,9 @@ function App() {
 
   return (
       <div className={ dataApp.dark ? "App dark" : "App"}>
-        <div className='container-grid container p-0 px-md-1'>
+        <div className='app-container-grid container p-0 px-md-1'>
           <Nav dataApp={dataApp} setDataApp={setDataApp} />
+          <FormSearch />
           <div className='position-relative'>
                 
           <GifsContextProvider>

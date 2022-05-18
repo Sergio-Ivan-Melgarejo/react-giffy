@@ -1,9 +1,10 @@
-.card{
-    height: 100%;
+.gif-card{
+    height: min-content;
     position: relative;
     background-color: var(--bg-color) !important;
+    border: 1px solid rgb(20, 168, 32);
 }
-
+/* 
 .container-card{
     background-color: var(--bg-card-color);
     height: 250px;
@@ -43,4 +44,4 @@
 
 .card .container-card.fullPage .gif{
     font-size: 2em;
-}
+} */
