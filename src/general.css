@@ -1,6 +1,6 @@
 :root{
     --bg-color:#F9F3F3;
-    --bg-card-color:rgb(235, 235, 235);
+    --bg-card-color:rgb(210, 210, 210);
     --color:#187de2;
     --color-hover:#4d9dec;
     --text-color-1:#151515;
@@ -60,13 +60,13 @@ a {
 }
 
 .btn-2{
-    color: var(--text-color);
+    color: var(--bg-card-color);
     border-color: var(--color);
     background-color: var(--color);
 }
 
 .btn-2:hover{
-    color: var(--text-color-1);
+    color: var(--bg-color);
     border-color: var(--color-hover);
     background-color: var(--color-hover);
 }

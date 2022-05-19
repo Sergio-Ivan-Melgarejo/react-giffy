@@ -26,11 +26,10 @@ function App() {
 
   return (
       <div className={ dataApp.dark ? "App dark" : "App"}>
-        <div className='app-container-grid container p-0 px-md-1'>
+        <div className='app-container-grid'>
           <Nav dataApp={dataApp} setDataApp={setDataApp} />
           <FormSearch />
-          <div className='position-relative'>
-                
+
           <GifsContextProvider>
             <Route component={Home} 
               path="/"
@@ -42,8 +41,7 @@ function App() {
               path="/gif/:id"
             />
           </GifsContextProvider>
-
-          </div>
+          
           <Footer/>
         </div>
       </div>

@@ -2,42 +2,18 @@
   text-align: center;
   min-height: 100vh;
   background-color: var(--bg-color);
-  border: 1px solid red;
-  padding-top: 6em;
+  max-width: 1600px;
+  margin: auto;
+}
+
+@media screen and (min-width:666px) {      
+  .App{
+    padding: 0 1em 1em;
+  }
 }
 
 .app-container-grid{
   display: grid;
   grid-template-rows: min-content 1fr min-content;
   min-height: 100vh;
-}
-
-/*----------*/
-
-.App-main {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.App-results {
-  flex-shrink: 2;
-}
-
-.App-category {
-  margin-bottom: 25px;
-  width: 100%;
-}
-
-@media screen and (min-width: 640px){
-  .App-main{
-    flex-direction: initial;
-  }
-
-  .App-category{
-    padding: 0 2em;
-    position: sticky;
-    top: 0;
-    width: 40%;
-  }
 }

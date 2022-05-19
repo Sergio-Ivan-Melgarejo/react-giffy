@@ -47,7 +47,26 @@ const Nav = () => {
                 <div className='line-3'></div>
             </button>
 
-            <div className={openNav ? "nav__links open" : "nav__links"}>
+            <div className="nav__links">
+                <ul className="nav__ul">
+                    {/* button language */}
+                    <li className="nav__li">
+                        <button className='btn btn-1'>
+                            {language}
+                        </button>
+                    </li>
+                    {/* button theme */}
+                    <li className="nav__li">
+                        <button className="btn btn-1" >{data[language].nav.theme[theme]}</button>
+                    </li>
+                </ul>
+
+                {/* button loggin */}
+                <button className='btn btn-2'>{data[language].nav["btn-1"]}</button>
+            </div>
+
+            {/* side bar */}
+            <div className={openNav ? "nav__side-bar open" : "nav__side-bar"}>
                 <ul className="nav__ul">
                     {/* button language */}
                     <li className="nav__li">
