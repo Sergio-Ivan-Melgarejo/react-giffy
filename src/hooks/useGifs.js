@@ -32,8 +32,18 @@ const useGifs = ({keyword} = {keyword:null}) => {
           if(keyword !== null && keyword !== ""){
             localStorage.setItem("LastKeyword",JSON.stringify(keyword));
             
-            const searchedHistory = localStorage.getItem("searched-history");
-            localStorage.setItem("searched-history",(searchedHistory + "," + keyword));
+            // guarda el historial de las ultimas 5 busquedas
+            let searchedHistory = localStorage.getItem("searched-history");
+            if(searchedHistory){
+              searchedHistory = JSON.parse(searchedHistory);
+              searchedHistory = searchedHistory.filter(ele => ele !== keyword);
+              searchedHistory.unshift(keyword);
+              searchedHistory = searchedHistory.slice(0,5);
+              searchedHistory = JSON.stringify(searchedHistory); 
+              localStorage.setItem("searched-history",searchedHistory);
+            } else{
+              localStorage.setItem("searched-history",JSON.stringify([keyword]));
+            }
           }
           });
     }

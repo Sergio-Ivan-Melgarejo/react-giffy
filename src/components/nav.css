@@ -5,7 +5,7 @@
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid var(--bg-color);
-    box-shadow: 0 .5em 1em #00000050;
+    box-shadow: 0 0 1em 0 var(--bg-color);
     
     position:sticky;
     top: 0;
@@ -16,8 +16,8 @@
 
 @media screen and (min-width:666px) {      
     .nav{
-        border-bottom-left-radius: 2em;
-        border-bottom-right-radius: 2em;
+        border-bottom-left-radius: var(--border-radius);
+        border-bottom-right-radius: var(--border-radius);
     }
 }
 

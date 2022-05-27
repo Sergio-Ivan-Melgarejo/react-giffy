@@ -1,7 +1,7 @@
 import {useState} from "react"
 import './App.css';
 
-// Librerias
+// Library
 import {Route} from 'wouter';
 
 // Context

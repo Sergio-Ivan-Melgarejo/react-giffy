@@ -23,40 +23,41 @@ const Home = () => {
   const getLocalStorage = localStorage.getItem("LastKeyword");
 
   return (
-    <header className='home py-1 text-light'>
-        <div className='row justify-content-between gap-3 m-3 mx-md-0'>
-          <section className='recommended text-md-start col-12 col-md-8 col-lg-5 p-2'>
-            <h2 className='h4 ps-3 text-uppercase'><span className='color'>gif -</span>  Recommended</h2>
-            <ul className='ul d-flex flex-column ps-md-3 list-group' >
+    <header className='home'>
+        <div className='home__container'>
+
+          <section className='home__recommended'>
+            <h2 className='home__title'><span className='color'>gif -</span>  Recommended</h2>
+            <ul className='home__ul' >
               {
-                recommended.map((ele,num) => <li key={num} className={`li li-${num}`}>
-                  <Link className='searched list-group-item list-group-item-action btn btn-outline-warning' to={`/search/${ele}`}>{ele}</Link>
+                recommended.map((ele,num) => <li key={num} className={`home__li li-${num}`}>
+                  <Link className='btn' to={`/search/${ele}`}>{ele}</Link>
                 </li>)
               }
             </ul>
-           
           </section>
 
-          <section className='searched col-12 col-md-8 col-lg-5 p-2 text-md-end'>
-            <h2 className='h4 pe-3 text-uppercase'><span className='color'>gif -</span> Searched</h2>
-            <ul className='ul d-flex flex-column pe-md-3 list-group'>
+          <section className='home__searched'>
+            <h2 className='home__title'><span className='color'>gif -</span> Searched</h2>
+            <ul className='home__ul'>
               {
                 searched.map((ele,num) => {
-                  if(ele !== false)return (
-                    <li key={num} className={`li li-${num}`}>
-                      <Link className='searched list-group-item list-group-item-action btn btn-outline-warning' to={`/search/${ele}`}>{ele}</Link>
+                  console.log(ele, !ele)
+                  if(ele)return (
+                    <li key={num} className="home__li">
+                      <Link className='btn' to={`/search/${ele}`}>{ele}</Link>
                     </li>
                   )
                   else return (
-                    <li key={num} className={`li li-${num}`}>
-                      <div className='searched list-group-item list-group-item-action rellenar'>{ele}</div>
+                    <li key={num} className="home__li">
+                      <div className='btn rellenar'>{ele}</div>
                     </li>
                   )
                 })
               }
             </ul>
-            
           </section>
+
         </div>
 
        { getLocalStorage ? 
@@ -66,8 +67,8 @@ const Home = () => {
             <Loader />
           :
             <>
-              <h3 className='text-start py-2 px-4 h5 last-search fw-bolder mt-5 mb-2 col-12'>Last Searched...</h3>
-              <section className="trends d-flex flex-wrap flex-lg-nowrap overflow-hidden py-3">
+              <h3 className="home__last-search">Last Searched...</h3>
+              <section className="gifs-container">
                 {
                   gifs.map((gif) => <CardGif dataApp={{lang:"en"}} key={"gif=" + gif.id} title={gif.title} id={gif.id} img={gif.img}/>)
                 }

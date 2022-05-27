@@ -1,81 +1,82 @@
 .home{
-    height: 100%;
-    background-color: var(--bg-card-color);
+    /* height: 100%; */
 }
 
-.home .h1{
-    color: var(--text-color);
+.home__title{
+    text-transform: uppercase;
+    color: var(--text-color-1);
 }
 
-/* 
-@media screen  and (min-width:768px){
-    .home{   
-        background-image: url(../logo/logo_small_icon_only_inverted.png), url(../logo/logo_small_icon_only_inverted.png);
-        background-repeat: no-repeat , no-repeat;
-        background-attachment: fixed, fixed;
-        background-size: 100px, 100px;
-        background-position: 10% 15%, 90% 15%;
+.home__container{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1em;
+    padding: 1em;
+    margin-bottom: 4em;
+}
+
+@media screen and (min-width:966px) {
+    .home__container{
+        grid-template-columns: 1fr 1fr;
     }
+}
 
-    .dark .home{
-        background-image: url(../logo/logo_small_icon_only.png),url(../logo/logo_small_icon_only.png);
+.home__searched,
+.home__recommended{
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    /* overflow: hidden; */
+}
+
+@media screen and (min-width:666px) {
+    .home__searched{
+        margin: 0;
+        margin-left: auto;
+    }
+    .home__recommended{
+        margin: 0;
+        margin-right: auto;
     }
 }
 
-@media screen  and (min-width:992px){
-    .home{   
-        background-image: url(../logo/logo_small_icon_only_inverted.png), url(../logo/logo_small_icon_only_inverted.png);
-    }
-
-    .dark .home{
-        background-image: url(../logo/logo_small_icon_only.png),url(../logo/logo_small_icon_only.png);
-    }
-} */
-
-.searched,
-.recommended,
-.trends{
-    background-color: var(--bg-color);
-    justify-content: space-between;
-    overflow: hidden;
+.home__ul{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
 }
 
-.recommended{
-    margin-right: auto;
-}
-
-.searched{
-    margin-left: auto;
-}
-
-.home .ul .li{
-    list-style: none;
-}
-
-.home .ul .rellenar{
-    min-height: 2.6em;
+.home__ul .rellenar{
     cursor:auto;
-}
-
-.home .ul .li div,
-.home .ul .li a{
-    min-height: 2.6em;
     background-color: var(--bg-card-color);
-    color: var(--text-color);
 }
 
-.home .ul{
-    list-style: none;
+.home .btn{
+    height: 2.65em;
+    background-color: var(--bg-card-color);
+    color: var(--text-color-1);
+    border-radius: 0;
 }
 
-.home .recommended .ul .li{
+@media screen and (min-width:666px) {
+    .home .btn{
+        border-radius: var(--border-radius);
+    }
+}
+
+.home .btn:hover{
+    background-color: var(--color);
+    color: var(--text-color-2);
+}
+
+.home__recommended .home__li{
     transform: translate(-100%);
     animation: appearR .8s forwards;
 }
-.home .recommended .ul .li-1{animation-delay: .2s;}
-.home .recommended .ul .li-2{animation-delay: .4s;}
-.home .recommended .ul .li-3{animation-delay: .6s;}
-.home .recommended .ul .li-4{animation-delay: .8s;}
+.home__recommended .home__li:nth-child(2){animation-delay: .2s;}
+.home__recommended .home__li:nth-child(3){animation-delay: .4s;}
+.home__recommended .home__li:nth-child(4){animation-delay: .6s;}
+.home__recommended .home__li:nth-child(5){animation-delay: .8s;}
 
 @keyframes appearR {
     0%{
@@ -86,15 +87,15 @@
     }
 }
 
-.home .searched .ul .li{
+.home__searched .home__li{
     transform: translate(100%);
     animation: appearS .8s forwards;
 }
 
-.home .searched .ul .li-1{animation-delay: .2s;}
-.home .searched .ul .li-2{animation-delay: .4s;}
-.home .searched .ul .li-3{animation-delay: .6s;}
-.home .searched .ul .li-4{animation-delay: .8s;}
+.home__searched .home__li:nth-child(2){animation-delay: .2s;}
+.home__searched .home__li:nth-child(3){animation-delay: .4s;}
+.home__searched .home__li:nth-child(4){animation-delay: .6s;}
+.home__searched .home__li:nth-child(5){animation-delay: .8s;}
 
 @keyframes appearS {
     0%{
@@ -105,7 +106,14 @@
     }
 }
 
-.last-search{
+.home__last-search{
     color: var(--text-color-2);
     background-color: var(--color);
+    padding: .5em;
+    text-align: left;
+}
+@media screen and (min-width:666px) {
+    .home__last-search{
+        border-radius: var(--border-radius);
+    }
 }

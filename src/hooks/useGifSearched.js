@@ -1,21 +1,16 @@
 // hook para las historial de busqueda
 const useGifSearched = () => {
-    const gifSearch = [];
     let getSearched = localStorage.getItem("searched-history");
 
-    if(getSearched) getSearched = getSearched.split(",").reverse();
+    if(getSearched) getSearched =JSON.parse(getSearched) ;
     else getSearched = [];
 
     for(let i=0; i < 5 ;i++){
-        if(getSearched[i]){
-          gifSearch.push(getSearched[i])
-        }
-        else gifSearch.push(" ")
+        if(getSearched[i]) continue
+        else getSearched.push(null)
     }
 
-    localStorage.setItem("searched-history",gifSearch.join(","));
-
-  return gifSearch.reverse()
+  return getSearched;
 }
 
 export default useGifSearched
