@@ -1,6 +1,12 @@
 import { useEffect, useState } from 'react'
+
+// Library
 import { Link } from 'wouter'
+
+// services
 import getTrendingTermsServices from 'services/getTrendingTermsServices'
+
+// Style
 import "./trends.css";
 
 function TrendingSearch () {
@@ -13,7 +19,7 @@ function TrendingSearch () {
 
     return (
         <>
-        <h2 className='home__title'><span className='color'>gif -</span> Trends</h2>
+        <h2 className='title'><span className='color'>gif -</span> Trends</h2>
         <div className='trends'>
             {
                 trendes.length > 0 

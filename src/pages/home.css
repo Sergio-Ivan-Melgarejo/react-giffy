@@ -2,11 +2,6 @@
     /* height: 100%; */
 }
 
-.home__title{
-    text-transform: uppercase;
-    color: var(--text-color-1);
-}
-
 .home__container{
     display: grid;
     grid-template-columns: 1fr;
@@ -116,4 +111,8 @@
     .home__last-search{
         border-radius: var(--border-radius);
     }
+}
+
+.home__span-last-search{
+    color: var(--text-color-1);
 }

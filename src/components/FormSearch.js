@@ -3,7 +3,6 @@ import "./formSearch.css"
 
 import { useLocation } from 'wouter';
 
-const theme = "dark";
 const language = "English";
 const data = {
     Spanish: {
@@ -36,13 +35,13 @@ const FormSearch = () => {
     }
 
     return (
-        <div>
+        <>
             {/* search */}
             <form onSubmit={handleSubmitSearch} className="formSearch">
                 <input value={keyword} onChange={handleChange} className="btn search" type="search" placeholder={data[language].FormSearch.placeholder} aria-label="Search" />
                 <input className="btn btn-2 btn-search" type="submit" value={data[language].FormSearch["btn-1"]} />
             </form>
-        </div>
+        </>
     )
 }
 

@@ -1,5 +1,4 @@
 import {useState} from "react"
-import './App.css';
 
 // Library
 import {Route} from 'wouter';
@@ -15,6 +14,9 @@ import Detail from './pages/Detail';
 import Search from 'pages/Search';
 import FormSearch from 'components/FormSearch';
 
+// Style
+import './App.css';
+
 const dataInitial = {
   lang: "en",
   rating: "g",
@@ -26,7 +28,6 @@ function App() {
 
   return (
       <div className={ dataApp.dark ? "App dark" : "App"}>
-        <div className='app-container-grid'>
           <Nav dataApp={dataApp} setDataApp={setDataApp} />
           <FormSearch />
 
@@ -43,7 +44,6 @@ function App() {
           </GifsContextProvider>
           
           <Footer/>
-        </div>
       </div>
   );
 }

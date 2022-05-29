@@ -15,11 +15,11 @@ const Search = ({params}) => {
   const handeleNextPage = () => setPage(prevPage => prevPage + 1);
 
   return (
-    <>
-      <h2 className='text-light p-2 py-3 text-uppercase'><span className='color'>gif -</span> {decodeURI(params.keyword)}</h2>
+    <div>
+      <h2 className='title'><span className='color'>gif -</span> {decodeURI(params.keyword)}</h2>
       <ListOfGifs gifs={gifs} loading={loading} />
-      <button className='btn btn-outline-warning w-100 fs-4 p-3 my-3 rounded-0' onClick={handeleNextPage} >Get next page</button>
-    </>
+      <button className='btn btn-2 search__btn' onClick={handeleNextPage} >Get next page</button>
+    </div>
   )
 }
 

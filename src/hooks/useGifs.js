@@ -22,10 +22,11 @@ const useGifs = ({keyword} = {keyword:null}) => {
       setLoading(true);
 
       // alterar para poder cambiarlo desde menu (tambien el idioma)
-      const limit = keyword ? 24 : 4;
+      const limit = keyword ? 24 : 8;
 
       getGifs({search:keywordToUse, limit,lang:"en"})
       .then(gifs =>{
+        console.log(gifs)
           setGifs(gifs);
           setLoading(false)
           // guardamos la keyword del localStorage

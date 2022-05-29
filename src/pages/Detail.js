@@ -6,16 +6,41 @@ import "./detail.css";
 
 const Detail = ({params}) => {
   const gifs = useGlobalGifs() 
-  // console.log(gifs)
-  
   const gif = gifs.find(singleGif => singleGif.id === params.id)
-  // console.log(gif)
   return ( 
-    <div className='Detail align-items-start justify-content-center row m-0'>
-      <h1 className='col-12 h1 fw-bolder py-3'>{gif.title}</h1>
-      <div className='container-img text-light p-0'>
-        <img className='img-fluid' src={gif.imgLarge} alt={gif.title} />
-        <p className='id'>{gif.id}</p>
+    <div className='detail'>
+      <h2 className='title'><span className='color'>gif -</span> {gif.title}</h2>
+      
+      <div className='detail__gif'>
+        <div className='detail__container-img'>
+          <img className='detail__img' src={gif.imgLarge} alt={gif.title} />
+          <p className='detail__id'>{gif.id}</p>
+          
+          <div className="detail__top">
+            <div className='detail__line detail__line-1'></div>
+            <div className='detail__line detail__line-2'></div>
+            <div className='detail__line detail__line-3'></div>
+          </div>
+          
+          <div className="detail__right">
+            <div className='detail__line detail__line-3'></div>
+            <div className='detail__line detail__line-2'></div>
+            <div className='detail__line detail__line-1'></div>
+          </div>
+          
+          <div className="detail__bottom">
+            <div className='detail__line detail__line-3'></div>
+            <div className='detail__line detail__line-2'></div>
+            <div className='detail__line detail__line-1'></div>
+          </div>
+          
+          <div className="detail__left">
+            <div className='detail__line detail__line-1'></div>
+            <div className='detail__line detail__line-2'></div>
+            <div className='detail__line detail__line-3'></div>
+          </div>
+
+        </div>
       </div>
     </div>
   )

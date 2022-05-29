@@ -5,16 +5,13 @@
   max-width: 1600px;
   margin: auto;
   overflow-x: hidden;
+  
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
 }
 
 @media screen and (min-width:666px) {      
   .App{
     padding: 0 1em;
   }
-}
-
-.app-container-grid{
-  display: grid;
-  grid-template-rows: min-content 1fr min-content;
-  min-height: 100vh;
 }

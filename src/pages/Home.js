@@ -27,7 +27,7 @@ const Home = () => {
         <div className='home__container'>
 
           <section className='home__recommended'>
-            <h2 className='home__title'><span className='color'>gif -</span>  Recommended</h2>
+            <h2 className='title'><span className='color'>gif -</span>  Recommended</h2>
             <ul className='home__ul' >
               {
                 recommended.map((ele,num) => <li key={num} className={`home__li li-${num}`}>
@@ -38,7 +38,7 @@ const Home = () => {
           </section>
 
           <section className='home__searched'>
-            <h2 className='home__title'><span className='color'>gif -</span> Searched</h2>
+            <h2 className='title'><span className='color'>gif -</span> Searched</h2>
             <ul className='home__ul'>
               {
                 searched.map((ele,num) => {
@@ -58,26 +58,6 @@ const Home = () => {
           </section>
 
         </div>
-
-       {/* { getLocalStorage ? 
-        <>
-         { 
-          loading ? 
-            <Loader />
-          :
-            <>
-              <h3 className="home__last-search">Last Searched...</h3>
-              <section className="gifs-container">
-                {
-                  gifs.map((gif) => <Gif dataApp={{lang:"en"}} key={"gif=" + gif.id} title={gif.title} id={gif.id} img={gif.img}/>)
-                }
-              </section>
-            </>
-          }
-        </>
-        :
-        null
-      } */}
       
        { getLocalStorage ? 
         <>
@@ -86,7 +66,7 @@ const Home = () => {
             <Loader />
           :
             <>
-              <h3 className="home__last-search">Last Searched - {getLocalStorage}</h3>
+              <h3 className="home__last-search">Last Searched - <span className='home__span-last-search'>{getLocalStorage}</span></h3>
               <ListOfGifs gifs={gifs} loading={loading} />
             </>
           }
@@ -94,7 +74,6 @@ const Home = () => {
         :
         null
       }
-
 
       <TrendingSearch />
     </header>

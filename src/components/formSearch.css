@@ -3,14 +3,14 @@
     margin: 0 auto 30px;
     justify-content: center;
     align-items: center;
-    padding: 1em;
     font-size: 1.2em;
     max-width: 800px;
-    margin-top: 3em;
+    margin: 8em auto 1em;
+    width: 90%;
 }
 
 .formSearch .search{
-    flex: 4 1 1px;
+    width: 100%;
     border-radius: 0;
     outline-color: var(--color);
     border-top-left-radius: var(--border-radius);
@@ -22,7 +22,6 @@
 }
 
 .formSearch .btn-search{
-    flex: 1 1 1px;
     border-radius: 0;
     border-top-right-radius: var(--border-radius);
     border-bottom-right-radius: var(--border-radius);
@@ -31,7 +30,6 @@
 }
 
 @media screen and (max-width:666px) {
-
     .formSearch .search{
         border-top-left-radius: 2px;
         border-bottom-left-radius: 2px;

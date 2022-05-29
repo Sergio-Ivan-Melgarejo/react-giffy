@@ -21,6 +21,12 @@
     --text-color-2:#151515;
 }
 
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -44,6 +50,15 @@ ul{
     list-style: none;
     padding: 0;
     margin: 0;
+}
+
+.color{
+    color: var(--color);
+}
+
+.title{
+    text-transform: uppercase;
+    color: var(--text-color-1);
 }
 
 /****************  btn  *********************/
@@ -88,11 +103,6 @@ ul{
     border-color: var(--color-hover);
     background-color: var(--color-hover);
 }
-
-.color{
-    color: var(--color);
-}
-
 
 
 

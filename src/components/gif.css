@@ -1,6 +1,8 @@
 .gif {
   margin-bottom: 1.5em;
-  min-height: 200px;
+  /* min-height: 200px;
+  max-height: 400px; */
+  height: 300px;
 }
 
 .gif__link {
@@ -12,6 +14,13 @@
   overflow: hidden;
 }
 
+@media screen and (min-width:666px) {
+  .gif__link {
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+  } 
+}
+
 .gif__img {
   display: block;
   height: 100%;
@@ -21,7 +30,7 @@
   transition: all .3s ease-in;
 }
 
-.gif__title{
+.gif__title {
   margin: 0;
   color: var(--text-color-1);
   position: absolute;
