@@ -1,6 +1,10 @@
-import ListGifs from 'components/ListGifs';
+// Hooks
 import useGifs from 'hooks/useGifs';
-import React from 'react';
+
+// Components
+import ListOfGifs from 'components/ListOfGifs';
+
+// Style
 import "./search.css";
 
 // decodeURI reemplaza los %20 por espacios en blanco
@@ -13,7 +17,7 @@ const Search = ({params}) => {
   return (
     <>
       <h2 className='text-light p-2 py-3 text-uppercase'><span className='color'>gif -</span> {decodeURI(params.keyword)}</h2>
-      <ListGifs gifs={gifs} loading={loading} />
+      <ListOfGifs gifs={gifs} loading={loading} />
       <button className='btn btn-outline-warning w-100 fs-4 p-3 my-3 rounded-0' onClick={handeleNextPage} >Get next page</button>
     </>
   )

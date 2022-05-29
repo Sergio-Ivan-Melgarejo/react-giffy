@@ -1,8 +1,5 @@
-import React, { useState } from 'react'
-import "./home.css"
-
 // Librerias
-import { Link } from 'wouter'
+import { Link } from 'wouter';
 
 // Context
 
@@ -12,8 +9,11 @@ import useGifSearched from 'hooks/useGifSearched';
 
 // Components
 import Loader from 'components/Loader';
-import CardGif from 'components/CardGif';
 import TrendingSearch from 'components/trends/LazyTrendingSearch';
+import ListOfGifs from 'components/ListOfGifs';
+
+// Style
+import "./home.css";
 
 const recommended = ["Panda","pandas","mas pandas","rick & morty","the witcher"];
 
@@ -42,7 +42,6 @@ const Home = () => {
             <ul className='home__ul'>
               {
                 searched.map((ele,num) => {
-                  console.log(ele, !ele)
                   if(ele)return (
                     <li key={num} className="home__li">
                       <Link className='btn' to={`/search/${ele}`}>{ele}</Link>
@@ -60,7 +59,7 @@ const Home = () => {
 
         </div>
 
-       { getLocalStorage ? 
+       {/* { getLocalStorage ? 
         <>
          { 
           loading ? 
@@ -70,7 +69,7 @@ const Home = () => {
               <h3 className="home__last-search">Last Searched...</h3>
               <section className="gifs-container">
                 {
-                  gifs.map((gif) => <CardGif dataApp={{lang:"en"}} key={"gif=" + gif.id} title={gif.title} id={gif.id} img={gif.img}/>)
+                  gifs.map((gif) => <Gif dataApp={{lang:"en"}} key={"gif=" + gif.id} title={gif.title} id={gif.id} img={gif.img}/>)
                 }
               </section>
             </>
@@ -78,7 +77,24 @@ const Home = () => {
         </>
         :
         null
+      } */}
+      
+       { getLocalStorage ? 
+        <>
+         { 
+          loading ? 
+            <Loader />
+          :
+            <>
+              <h3 className="home__last-search">Last Searched - {getLocalStorage}</h3>
+              <ListOfGifs gifs={gifs} loading={loading} />
+            </>
+          }
+        </>
+        :
+        null
       }
+
 
       <TrendingSearch />
     </header>

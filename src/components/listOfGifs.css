@@ -1,0 +1,12 @@
+.ListOfGifs {
+  display: grid;
+  gap: .5em;
+  padding: .5em;
+  grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
+}
+
+@media screen and (min-width:666px) {
+    .ListOfGifs {
+        grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+    }
+}
