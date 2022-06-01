@@ -1,22 +1,28 @@
-const { useEffect, useRef, useState } = require("react");
+import { useEffect, useRef, useState } from 'react';
 
 /**
  * 
- * @param {distancia} string distacia que vigila por defecto "100px"
+ * @param {distance} string distacia que vigila por defecto "100px"
  * @returns 
  * hook para lazy load, evita que carge el archivo si no esta en viewport
  */
-function useNearScreen ({distancia = "100px"}) {
+function useNearScreen ({distance = "100px", externalRef, once=true} = {}) {
     const [isNearScreen, setIsNearScreen] = useState(false)
     const fromRef = useRef()
 
     useEffect(() => {
         let observer;
+
+        const fromElement = externalRef ? externalRef.current : fromRef.current;
+        if (!fromElement) return
+        
         const onChange=(entries,observer)=>{
             const el = entries[0]
             if(el.isIntersecting){
                 setIsNearScreen(true)
-                observer.disconnect()
+                once && observer.disconnect()
+            } else {
+                !once && setIsNearScreen(false)
             }
         }
 
@@ -27,13 +33,13 @@ function useNearScreen ({distancia = "100px"}) {
         )
         .then(()=>{
             observer = new IntersectionObserver(onChange,{
-                rootMargin: distancia
+                rootMargin: distance
             })
-            observer.observe(fromRef.current)
+            observer.observe(fromElement)
         })
 
         return ()=> observer && observer.disconnect()
-    })
+    },[distance, externalRef, once])
 
     return {isNearScreen, fromRef}
 }
