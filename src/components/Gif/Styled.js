@@ -2,10 +2,12 @@ import styled from "styled-components";
 import Screen from "style/Screen";
 
 export const Styles = styled.div`
-  /* margin-bottom: 1.5em; */
-  /* min-height: 200px;
-  max-height: 400px; */
-  height: 300px;
+  /* margin-bottom: 1.5em;
+  min-height: 15em;
+  max-height: 25em; */
+  /* width: 100%; */
+  height: 20em;
+  text-align: center;
 
   .gif__link {
     display: block;
@@ -26,18 +28,22 @@ export const Styles = styled.div`
   }
 
   .gif__title {
-    margin: 0;
-    color: var(--primary-letter-color);
     position: absolute;
     bottom: 0;
     left: 0;
+    margin: 0;
+    padding: 0 .5em;
     width: 100%;
     height: 50%;
+    font-size: 0.9em;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.9em;
+
     background: linear-gradient(180deg, transparent 0%, #000);
+    color: var(--primary-letter-color);
+
     transition: all 0.3s ease-in;
   }
 

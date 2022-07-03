@@ -66,6 +66,7 @@ export default createGlobalStyle`
     .App-title {
         text-transform: uppercase;
         color: var(--primary-letter-color);
+        margin-bottom: 1em;
     }
 
     

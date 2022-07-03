@@ -13,7 +13,7 @@ export const Styles = styled.div`
   }
 
   .btn {
-    font-size: 0.7em;
+    font-size: 0.75em;
   }
 
   .App-title {

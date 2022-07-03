@@ -2,7 +2,6 @@ import Screen from "style/Screen";
 import styled from "styled-components";
 
 export const AppStyled = styled.div`
-    text-align: center;
     min-height: 100vh;
     max-width: 1600px;
     margin: auto;

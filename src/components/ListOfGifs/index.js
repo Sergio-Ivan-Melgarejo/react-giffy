@@ -1,9 +1,9 @@
 import React from 'react'
 import Gif from '../Gif'
-import './styles.css'
+import { Styles } from './Styled'
 
 export default function ListOfGifs ({gifs}) {
-  return <div className='ListOfGifs'>
+  return <Styles>
     {
       gifs.map(({id, title, url}) =>
         <Gif
@@ -14,5 +14,5 @@ export default function ListOfGifs ({gifs}) {
         />
       )
     }
-  </div>
+  </Styles>
 }
