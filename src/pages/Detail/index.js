@@ -1,17 +1,13 @@
 import React from 'react';
-
-// Hooks
+import { Styles } from './Styled';
 import useGlobalGifs from 'hooks/useGlobalGifs';
-
-// Style
-import "./detail.css";
 
 const Detail = ({params}) => {
   const gifs = useGlobalGifs() 
   const gif = gifs.find(singleGif => singleGif.id === params.id)
   console.log(gif)
   return ( 
-    <div className='detail'>
+    <Styles>
       <h2 className='App-title'><span className='color'>gif -</span> {gif.title}</h2>
       
       <div className='detail__gif'>
@@ -42,10 +38,9 @@ const Detail = ({params}) => {
             <div className='detail__line detail__line-2'></div>
             <div className='detail__line detail__line-3'></div>
           </div>
-
         </div>
       </div>
-    </div>
+    </Styles>
   )
 }
 
