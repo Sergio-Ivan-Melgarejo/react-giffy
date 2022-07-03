@@ -1,51 +1,45 @@
-import {useState} from "react"
-
-// Library
-import {Route} from 'wouter';
+import React, { Suspense } from 'react';
+import { Route } from "wouter"
 
 // Context
-import { GifsContextProvider } from './context/GifsContext';
+import {GifsContextProvider} from './context/GifsContext'
 
-// Component
-import Nav from './components/Nav';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import Detail from './pages/Detail';
-import Search from 'pages/Search';
-import FormSearch from 'components/FormSearch';
+// Components
+import SearchResults from './pages/SearchResults'
+import Detail from './pages/Detail'
+import Nav from 'components/Nav';
+import SearchForm from 'components/SearchForm';
+import Footer from 'components/Footer';
 
 // Style
-import './App.css';
+import { AppStyled } from 'AppStyled';
 
-const dataInitial = {
-  lang: "en",
-  rating: "g",
-  dark: true
-};
+// import Home from './pages/Home'
+const HomePage = React.lazy(()=> import('./pages/Home'))
 
-function App() {
-  const [dataApp, setDataApp] = useState(dataInitial);
-
+export default function App() {
   return (
-      <div className={ dataApp.dark ? "App dark" : "App"}>
-          <Nav dataApp={dataApp} setDataApp={setDataApp} />
-          <FormSearch />
-
+    <AppStyled>
+      <Suspense fallback={"Cargando"} >
+        <Nav />
+        <SearchForm />
+        <section className="App-content">
           <GifsContextProvider>
-            <Route component={Home} 
+            <Route
+              component={HomePage}
               path="/"
             />
-            <Route component={Search} 
-              path="/search/:keyword"
-            />
-            <Route component={Detail} 
+            <Route
+              component={SearchResults}
+              path="/search/:keyword"  />
+            <Route
+              component={Detail}
               path="/gif/:id"
             />
           </GifsContextProvider>
-          
-          <Footer/>
-      </div>
-  );
+        </section>
+        <Footer />
+      </Suspense>
+    </AppStyled>
+  )
 }
-
-export default App;
