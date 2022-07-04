@@ -1,6 +1,11 @@
 import React from "react"
-import ListOfGifs from 'components/ListOfGifs'
+import { Helmet } from "react-helmet"
+
+// Hooks
 import {useGifs} from 'hooks/useGifs'
+
+// Components
+import ListOfGifs from 'components/ListOfGifs'
 import TrendingSearches from 'components/TrendingSearches'
 
 export default function Home() {
@@ -8,6 +13,11 @@ export default function Home() {
 
   return (
     <>
+      <Helmet >
+        <title>Home | Giffy</title>
+        <meta name="description" content={"home page of Giffy"} />
+        <meta name="rating" content="General" />
+      </Helmet>
       <div className="App-main">
         <div className="App-results">
           <h3 className="App-title title">Última búsqueda</h3>

@@ -1,10 +1,14 @@
 import React, { useEffect, useRef, useCallback } from "react";
-import Spinner from "components/Spinner";
-import ListOfGifs from "components/ListOfGifs";
+import { Helmet } from "react-helmet";
+import debounce from "just-debounce-it";
+
+// Hooks
 import { useGifs } from "hooks/useGifs";
 import useNearScreen from "hooks/useNearScreen";
-import debounce from "just-debounce-it";
-import useSeo from "hooks/useSeo";
+
+// components
+import Spinner from "components/Spinner";
+import ListOfGifs from "components/ListOfGifs";
 
 export default function SearchResults({ params }) {
   const { keyword } = params;
@@ -15,13 +19,6 @@ export default function SearchResults({ params }) {
     once: false,
     distance: "600px",
   });
-
-  const title = gifs
-    ? `${gifs.length} results of ${keyword}`
-    : loading
-    ? "Cargando..."
-    : "";
-  useSeo({ title });
 
   const debounceNextPage = useCallback(
     debounce(() => setPage((prevPage) => prevPage + 1), 500),
@@ -35,9 +32,21 @@ export default function SearchResults({ params }) {
   return (
     <>
       {loading ? (
-        <Spinner />
+        <>
+          <Helmet >
+            <title>Cargando...</title>
+            <meta name="description" content={"Cargando..."} />
+            <meta name="rating" content="General" />
+          </Helmet>
+          <Spinner />
+        </>
       ) : (
         <>
+          <Helmet >
+            <title>Search | Giffy</title>
+            <meta name="description" content={`${gifs.length} results of ${keyword}`} />
+            <meta name="rating" content="General" />
+          </Helmet>
           <h3 className="App-title">{decodeURI(keyword)}</h3>
           <ListOfGifs gifs={gifs} />
           <div data-testid="visor" ref={visorRef} />

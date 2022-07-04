@@ -1,20 +1,37 @@
 import React from 'react';
 import { Redirect } from 'wouter';
+import { Helmet } from 'react-helmet';
+
+// Hooks
 import useSingleGif from 'hooks/useSingleGif';
+
+// Components
 import Spinner from 'components/Spinner';
+
+// Styles 
 import { Styles } from './Styled';
-import useSeo from 'hooks/useSeo';
 
 const Detail = ({params}) => {
   let {gif, isLoading, isError} = useSingleGif({ id: params.id })
-  useSeo({title: gif?.title, description: `${gif?.title}`})
   
-  if ( isLoading ) return <Spinner />
+  if ( isLoading ) return (<>
+    <Spinner />
+    <Helmet >
+      <title>Cargando...</title>
+      <meta name="description" content={"Cargando..."} />
+    </Helmet>
+  </>)
   if ( isError ) return <Redirect to='/404' />
   if (!gif) return null
 
 
   return ( 
+  <>
+    <Helmet >
+      <title>{gif?.title} | Giffy</title>
+      <meta name="description" content={gif?.title} />
+      <meta name="rating" content="General" />
+    </Helmet>
     <Styles>
       <h2 className='App-title'><span className='color'>gif -</span> {gif.title}</h2>
       
@@ -46,6 +63,7 @@ const Detail = ({params}) => {
         </div>
       </div>
     </Styles>
+  </>
   )
 }
 
