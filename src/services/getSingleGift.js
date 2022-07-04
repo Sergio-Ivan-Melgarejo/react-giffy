@@ -4,7 +4,7 @@ const fromApiResponseToGifs = (apiResponse) => {
   const { data } = apiResponse;
   const { images, title, id } = data;
   const { url } = images.downsized_medium;
-  console.log(data);
+//   console.log(data);
   return { title, id, url };
 };
 
