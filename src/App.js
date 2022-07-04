@@ -26,11 +26,11 @@ export default function App() {
         <SearchForm />
         <section className="App-content">
           <GifsContextProvider>
-            <Route component={HomePage} path="/" />
-            <Route component={SearchResults} path="/search/:keyword" />
-            <Route component={Detail} path="/gif/:id" />
-            <Route component={Error404} path="/404" />
-            <Route component={<Redirect to="/404"/>} path="*" />
+            <Route index component={HomePage} />
+            <Route path="/search/:keyword" component={SearchResults} />
+            <Route path="/gif/:id" component={Detail} />
+            <Route path="/404" component={Error404} />
+            <Route path="*" component={<Redirect to="/404"/>} />
           </GifsContextProvider>
         </section>
         <Footer />

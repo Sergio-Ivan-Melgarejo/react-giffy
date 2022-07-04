@@ -10,13 +10,13 @@ import TrendingSearches from 'components/TrendingSearches'
 
 export default function Home() {
   const {loading, gifs} = useGifs()
-
   return (
     <>
       <Helmet >
         <title>Home | Giffy</title>
         <meta name="description" content={"home page of Giffy"} />
         <meta name="rating" content="General" />
+        <link rel="canonical" href="https://react-giffy.netlify.app" />
       </Helmet>
       <div className="App-main">
         <div className="App-results">
