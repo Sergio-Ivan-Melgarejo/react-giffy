@@ -1,12 +1,37 @@
 import React from 'react';
+import { Redirect } from 'wouter';
+import { Helmet } from 'react-helmet';
+
+// Hooks
+import useSingleGif from 'hooks/useSingleGif';
+
+// Components
+import Spinner from 'components/Spinner';
+
+// Styles 
 import { Styles } from './Styled';
-import useGlobalGifs from 'hooks/useGlobalGifs';
 
 const Detail = ({params}) => {
-  const gifs = useGlobalGifs() 
-  const gif = gifs.find(singleGif => singleGif.id === params.id)
-  console.log(gif)
+  let {gif, isLoading, isError} = useSingleGif({ id: params.id })
+  
+  if ( isLoading ) return (<>
+    <Spinner />
+    <Helmet >
+      <title>Cargando...</title>
+      <meta name="description" content={"Cargando..."} />
+    </Helmet>
+  </>)
+  if ( isError ) return <Redirect to='/404' />
+  if (!gif) return null
+
+
   return ( 
+  <>
+    <Helmet >
+      <title>{gif?.title} | Giffy</title>
+      <meta name="description" content={gif?.title} />
+      <meta name="rating" content="General" />
+    </Helmet>
     <Styles>
       <h2 className='App-title'><span className='color'>gif -</span> {gif.title}</h2>
       
@@ -20,19 +45,16 @@ const Detail = ({params}) => {
             <div className='detail__line detail__line-2'></div>
             <div className='detail__line detail__line-3'></div>
           </div>
-          
           <div className="detail__right">
             <div className='detail__line detail__line-3'></div>
             <div className='detail__line detail__line-2'></div>
             <div className='detail__line detail__line-1'></div>
           </div>
-          
           <div className="detail__bottom">
             <div className='detail__line detail__line-3'></div>
             <div className='detail__line detail__line-2'></div>
             <div className='detail__line detail__line-1'></div>
           </div>
-          
           <div className="detail__left">
             <div className='detail__line detail__line-1'></div>
             <div className='detail__line detail__line-2'></div>
@@ -41,6 +63,7 @@ const Detail = ({params}) => {
         </div>
       </div>
     </Styles>
+  </>
   )
 }
 

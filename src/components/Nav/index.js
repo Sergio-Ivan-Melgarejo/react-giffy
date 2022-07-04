@@ -1,8 +1,8 @@
 import React,{useState} from 'react'
 import {Link} from 'wouter';
 
-import logoSVGLight from "logo/logo_small_icon_only.png"
-import logoSVGDark from "logo/logo_small_icon_only_inverted.png"
+import logoSVGLight from "assets/logo/logo_small_icon_only.png"
+import logoSVGDark from "assets/logo/logo_small_icon_only_inverted.png"
 import { Styles } from './Styled';
 
 const theme = "dark";
