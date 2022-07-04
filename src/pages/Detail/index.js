@@ -3,13 +3,16 @@ import { Redirect } from 'wouter';
 import useSingleGif from 'hooks/useSingleGif';
 import Spinner from 'components/Spinner';
 import { Styles } from './Styled';
+import useSeo from 'hooks/useSeo';
 
 const Detail = ({params}) => {
   let {gif, isLoading, isError} = useSingleGif({ id: params.id })
-
+  useSeo({title: gif?.title, description: `${gif?.title}`})
+  
   if ( isLoading ) return <Spinner />
   if ( isError ) return <Redirect to='/404' />
   if (!gif) return null
+
 
   return ( 
     <Styles>
