@@ -2,14 +2,25 @@ import Screen from "style/Screen";
 import styled from "styled-components";
 
 export const Styles = styled.form`
+  /* position: sticky;
+  top: 5em; 
+  
+
+  pasarlo a nav
+  */
+  width: 100%;
+  margin: 0 auto 1em;
+  padding: 1em;
+
   display: flex;
   justify-content: center;
   align-items: center;
+
   font-size: 1.2em;
-  max-width: 800px;
-  margin: 0 auto ;
-  padding: 7em 0 3em;
-  width: 90%;
+  background: var(--secondary-background);
+  border-radius: var(--border-radius);
+
+  z-index: 10;
 
   .search {
     width: 100%;

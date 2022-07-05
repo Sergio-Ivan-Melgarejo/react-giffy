@@ -23,11 +23,10 @@ export default function App() {
     <AppStyled>
       <Suspense fallback={"Cargando"}>
         <Nav />
-        <SearchForm />
         <section className="App-content">
           <GifsContextProvider>
             <Route index component={HomePage} />
-            <Route path="/search/:keyword" component={SearchResults} />
+            <Route path="/search/:keyword/:rating?" component={SearchResults} />
             <Route path="/gif/:id" component={Detail} />
             <Route path="/404" component={Error404} />
             <Route path="*" component={<Redirect to="/404"/>} />

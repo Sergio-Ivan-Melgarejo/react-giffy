@@ -7,6 +7,7 @@ import {useGifs} from 'hooks/useGifs'
 // Components
 import ListOfGifs from 'components/ListOfGifs'
 import TrendingSearches from 'components/TrendingSearches'
+import SearchForm from "components/SearchForm"
 
 export default function Home() {
   const {loading, gifs} = useGifs()
@@ -18,6 +19,7 @@ export default function Home() {
         <meta name="rating" content="General" />
         <link rel="canonical" href="https://react-giffy.netlify.app" />
       </Helmet>
+      <SearchForm />
       <div className="App-main">
         <div className="App-results">
           <h3 className="App-title title">Última búsqueda</h3>

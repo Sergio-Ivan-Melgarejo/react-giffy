@@ -73,11 +73,11 @@ export const Styles = styled.div`
     background-color: var(--line-color-1);
   }
   .gif__line:nth-child(2) {
-    width: 80%;
+    width: 90%;
     background-color: var(--line-color-2);
   }
   .gif__line:nth-child(3) {
-    width: 60%;
+    width: 80%;
     background-color: var(--line-color-3);
   }
 

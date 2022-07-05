@@ -6,26 +6,28 @@ import { Styles } from "./Styled";
 import { languageData } from "languages/english";
 const lang = "English";
 
-function FormSearch() {
-  const [keyword, setKeyword] = React.useState("");
-  const [paht, pushLocation] = useLocation();
+const RATING = ["g", "pg", "pg-13", "r"];
+
+function FormSearch({initialRating="g", initialKeyword=""}) {
+  const [keyword, setKeyword] = React.useState(decodeURIComponent(initialKeyword));
+  const [rating, setRating] = React.useState(initialRating);
+  const [_, pushLocation] = useLocation();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (keyword !== "" && keyword !== false) {
-      pushLocation(`/search/${keyword}`);
+      pushLocation(`/search/${keyword}/${rating}`);
     }
   };
 
-  const handleChange = (evet) => {
-    setKeyword(evet.target.value);
-  };
+  const handleSearch = (evet) => setKeyword(evet.target.value)
+  const handleSelect = (evet) => setRating(evet.target.value)
 
   return (
     <Styles onSubmit={handleSubmit}>
       <input
         value={keyword}
-        onChange={handleChange}
+        onChange={handleSearch}
         className="btn search"
         type="search"
         placeholder={languageData[lang].FormSearch.placeholder}
@@ -36,6 +38,14 @@ function FormSearch() {
         type="submit"
         value={languageData[lang].FormSearch["btn-1"]}
       />
+      <select onChange={handleSelect}>
+        <option disabled>Rating type</option>
+        {RATING.map((ele) => (
+          <option keyword={ele} value={ele}>
+            {ele}
+          </option>
+        ))}
+      </select>
     </Styles>
   );
 }
