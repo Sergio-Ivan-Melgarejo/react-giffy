@@ -1,6 +1,9 @@
-import React, { useReducer } from "react";
+import React from "react";
 import { useLocation } from "wouter";
 import { Styles } from "./Styled";
+
+// hooks
+import { useForm } from "./hook";
 
 // language
 import { languageData } from "languages/english";
@@ -8,39 +11,15 @@ const lang = "English";
 
 const RATING = ["g", "pg", "pg-13", "r"];
 
-const filterReducer = (state, action) => {
-  switch (action.type) {
-    case "change_keyword":
-      return {
-        keyword: action.payload,
-        times: state.times + 1
-      }
-    default: return state
-  }
-}
 
-function FormSearch({initialRating="g", initialKeyword=""}) {
-  // const [keyword, setKeyword] = React.useState(decodeURIComponent(initialKeyword));
-  const [rating, setRating] = React.useState(initialRating);
-  // const [times, setTimes] = React.useState(0);
-
-
-
-  const [state, dispatch] = useReducer(filterReducer, {
-    keyword: decodeURIComponent(initialKeyword),
-    times: 0
+function FormSearch({ initialRating = "g", initialKeyword = "" }) {
+  const { keyword, times, rating, updateKeyword, updateRating } = useForm({
+    initialKeyword,
+    initialRating,
   });
 
-  const {keyword, times} = state;
-  
-  const updateKeyword = (keyword) => {
-    dispatch({type:"change_keyword", payload: keyword})
-  }
-
-  const handleSearch = (evet) => dispatch({type:"change_keyword", payload: evet.target.value})
-  const handleSelect = (evet) => setRating(evet.target.value)
-
-
+  const handleSearch = (evet) => updateKeyword(evet.target.value);
+  const handleSelect = (evet) => updateRating(evet.target.value);
 
   const [_, pushLocation] = useLocation();
   const handleSubmit = (e) => {
