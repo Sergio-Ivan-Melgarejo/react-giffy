@@ -11,7 +11,6 @@ const lang = "English";
 
 const RATING = ["g", "pg", "pg-13", "r"];
 
-
 function FormSearch({ initialRating = "g", initialKeyword = "" }) {
   const { keyword, times, rating, updateKeyword, updateRating } = useForm({
     initialKeyword,

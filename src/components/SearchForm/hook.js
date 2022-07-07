@@ -25,7 +25,7 @@ const filterReducer = (state, action) => {
   }
 };
 
-export const useForm = ({ initialKeyword, initialRating }) => {
+export const useForm = ({ initialKeyword = "", initialRating = "g" }) => {
   const [state, dispatch] = React.useReducer(filterReducer, {
     keyword: decodeURIComponent(initialKeyword),
     ratign: initialRating,
