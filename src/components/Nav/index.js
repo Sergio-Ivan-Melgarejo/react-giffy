@@ -2,7 +2,8 @@ import React,{useState} from 'react'
 import {Link} from 'wouter';
 
 // Context
-import { Context } from 'context/LanguageContext';
+import { Context as ContextLang } from 'context/LanguageContext';
+import { Context as ContextTheme } from 'context/ThemeContext';
 
 // style
 import { Styles } from './Styled';
@@ -11,13 +12,12 @@ import { Styles } from './Styled';
 import logoSVGLight from "assets/logo/logo_small_icon_only.png"
 import logoSVGDark from "assets/logo/logo_small_icon_only_inverted.png"
 
-const dark  = true;
-
 const Nav = () => {
     const [openNav, setOpenNav] = useState(false);
     const handleOpenNav = () => setOpenNav(!openNav);
 
-    const {text,changeLanguage} = React.useContext(Context);
+    const {text,changeLanguage} = React.useContext(ContextLang);
+    const {changeTheme,dark} = React.useContext(ContextTheme);
     return (
         <Styles>
             <Link className="logo-container" to="/" >
@@ -36,13 +36,13 @@ const Nav = () => {
                 <ul className="nav__ul">
                     {/* button language */}
                     <li className="nav__li">
-                        <button onClick={() => changeLanguage()} className='btn btn-1'>
+                        <button onClick={changeLanguage} className='btn btn-1'>
                             {text.nav.btnLanguage}
                         </button>
                     </li>
                     {/* button theme */}
                     <li className="nav__li">
-                        <button className="btn btn-1" >
+                        <button onClick={changeTheme} className="btn btn-1" >
                             {
                                 dark 
                                 ? text.nav.lightTheme

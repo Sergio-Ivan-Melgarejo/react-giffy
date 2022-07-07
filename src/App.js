@@ -3,7 +3,6 @@ import { Route } from "wouter";
 
 // Context
 import { GifsContextProvider } from "./context/GifsContext";
-import LanguageProvider from "context/LanguageContext";
 
 // Components
 import SearchResults from "./pages/SearchResults";
@@ -21,7 +20,6 @@ const HomePage = React.lazy(() => import("./pages/Home"));
 export default function App() {
   return (
     <AppStyled>
-      <LanguageProvider>
         <Suspense fallback={"Cargando"}>
           <Nav />
           <section className="App-content">
@@ -34,7 +32,6 @@ export default function App() {
           </section>
           <Footer />
         </Suspense>
-      </LanguageProvider>
     </AppStyled>
   );
 }
