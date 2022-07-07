@@ -5,9 +5,8 @@ import { Styles } from "./Styled";
 // hooks
 import { useForm } from "./hook";
 
-// language
-import { languageData } from "languages/english";
-const lang = "English";
+// context
+import { Context } from "context/LanguageContext";
 
 const RATING = ["g", "pg", "pg-13", "r"];
 
@@ -28,6 +27,8 @@ function FormSearch({ initialRating = "g", initialKeyword = "" }) {
     }
   };
 
+  const { text } = React.useContext(Context);
+
   return (
     <Styles onSubmit={handleSubmit}>
       <input
@@ -35,23 +36,23 @@ function FormSearch({ initialRating = "g", initialKeyword = "" }) {
         onChange={handleSearch}
         className="btn search"
         type="search"
-        placeholder={languageData[lang].FormSearch.placeholder}
+        placeholder={text.FormSearch.placeholder}
         aria-label="Search"
       />
       <input
         className="btn btn-2 btn-search"
         type="submit"
-        value={languageData[lang].FormSearch["btn-1"]}
+        value={text.FormSearch.btnSearch}
       />
       <select onChange={handleSelect}>
-        <option disabled>Rating type</option>
+        <option disabled>{text.FormSearch.rating}</option>
         {RATING.map((ele) => (
-          <option keyword={ele} value={ele}>
+          <option key={ele} value={ele}>
             {ele}
           </option>
         ))}
       </select>
-      <small>{times}</small>
+      {times > 0 && <small className="times">{times}</small>}
     </Styles>
   );
 }

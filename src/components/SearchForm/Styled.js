@@ -8,6 +8,7 @@ export const Styles = styled.form`
 
   pasarlo a nav
   */
+  position: relative;
   width: 100%;
   margin: 0 auto 1em;
   padding: 1em;
@@ -52,4 +53,28 @@ export const Styles = styled.form`
       border-bottom-right-radius: 2px;
     }
   `)}
+
+  .times{
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #e32020;
+    color: #fff;
+    font-weight: bolder;
+    padding:  .3em .6em; 
+    border-radius: .3em;
+    transform: translate(-50%,-50%);
+
+    &::after{
+      content: "";
+      position: absolute;
+      width: .5em;
+      height: .5em;
+      bottom: 0;
+      left: 50%;
+      transform: translate(50%, 100%);
+      background: #e32020;
+      clip-path: polygon(80% 0, 0 0, 100% 100%);
+    }
+  }
 `;

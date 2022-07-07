@@ -1,21 +1,27 @@
 import React,{useState} from 'react'
 import {Link} from 'wouter';
 
-import logoSVGLight from "assets/logo/logo_small_icon_only.png"
-import logoSVGDark from "assets/logo/logo_small_icon_only_inverted.png"
+// Context
+import { Context } from 'context/LanguageContext';
+
+// style
 import { Styles } from './Styled';
 
-const theme = "dark";
+// extra
+import logoSVGLight from "assets/logo/logo_small_icon_only.png"
+import logoSVGDark from "assets/logo/logo_small_icon_only_inverted.png"
+
+const dark  = true;
 
 const Nav = () => {
     const [openNav, setOpenNav] = useState(false);
-
     const handleOpenNav = () => setOpenNav(!openNav);
 
+    const {text,changeLanguage} = React.useContext(Context);
     return (
         <Styles>
             <Link className="logo-container" to="/" >
-                <img className='logo' src={theme === "dark" ? logoSVGDark : logoSVGLight} alt="logo"/>
+                <img className='logo' src={dark ? logoSVGDark : logoSVGLight} alt=""/>
                 <h1 className='color'>Giffy</h1>
             </Link>
 
@@ -30,18 +36,26 @@ const Nav = () => {
                 <ul className="nav__ul">
                     {/* button language */}
                     <li className="nav__li">
-                        <button className='btn btn-1'>
-                            Spanish
+                        <button onClick={() => changeLanguage()} className='btn btn-1'>
+                            {text.nav.btnLanguage}
                         </button>
                     </li>
                     {/* button theme */}
                     <li className="nav__li">
-                        <button className="btn btn-1" >theme</button>
+                        <button className="btn btn-1" >
+                            {
+                                dark 
+                                ? text.nav.lightTheme
+                                : text.nav.darkTheme
+                            }
+                        </button>
                     </li>
                 </ul>
 
                 {/* button loggin */}
-                <button className='btn btn-2'>loggin</button>
+                <button className='btn btn-2'>
+                    {text.nav.btnLoggin}
+                </button>
             </div>
 
             {/* side bar */}
