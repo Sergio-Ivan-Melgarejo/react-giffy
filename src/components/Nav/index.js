@@ -1,5 +1,4 @@
 import React,{useState} from 'react'
-import {Link} from 'wouter';
 
 // Context
 import { Context as ContextLang } from 'context/LanguageContext';
@@ -9,30 +8,21 @@ import { Context as ContextTheme } from 'context/ThemeContext';
 import { Styles } from './Styled';
 
 // extra
-import logoSVGLight from "assets/logo/logo_small_icon_only.png"
-import logoSVGDark from "assets/logo/logo_small_icon_only_inverted.png"
+import SearchForm from 'components/SearchForm';
+import { Logo, NavButton } from 'components/__subComponents';
 
 const Nav = () => {
-    const [openNav, setOpenNav] = useState(false);
-    const handleOpenNav = () => setOpenNav(!openNav);
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(!open);
 
     const {text,changeLanguage} = React.useContext(ContextLang);
     const {changeTheme,dark} = React.useContext(ContextTheme);
     return (
         <Styles>
-            <Link className="logo-container" to="/" >
-                <img className='logo' src={dark ? logoSVGDark : logoSVGLight} alt=""/>
-                <h1 className='color'>Giffy</h1>
-            </Link>
+            <Logo dark={dark} />
+            <NavButton handleOpen={handleOpen} open={open}/>
 
-            {/* nav button */}
-            <button onClick={handleOpenNav} className={openNav ? "nav-btn open" : "nav-btn"} type="button">
-                <div className='line-1'></div>
-                <div className='line-2'></div>
-                <div className='line-3'></div>
-            </button>
-
-            <div className="nav__links">
+            <div className={open ? "nav__links open" : "nav__links"}>
                 <ul className="nav__ul">
                     {/* button language */}
                     <li className="nav__li">
@@ -53,31 +43,16 @@ const Nav = () => {
                 </ul>
 
                 {/* button loggin */}
-                <button className='btn btn-2'>
+                <button className='btnLoggin btn btn-2'>
                     {text.nav.btnLoggin}
                 </button>
+
+                <div className="search-container">
+                    <SearchForm />
+                </div>
             </div>
 
-            {/* side bar */}
-            <div className={openNav ? "nav__side-bar open" : "nav__side-bar"}>
-                <ul className="nav__ul">
-                    {/* button language */}
-                    <li className="nav__li">
-                        <button className='btn btn-1'>
-                            Spanish
-                        </button>
-                    </li>
-                    {/* button theme */}
-                    <li className="nav__li">
-                        <button className="btn btn-1" >theme</button>
-                    </li>
-                </ul>
-
-                {/* button loggin */}
-                <button className='btn btn-2'>loggin</button>
-            </div>
-
-            <div onClick={handleOpenNav} className={openNav ? "nav-shadow open" : 'nav-shadow'}></div>
+            <div onClick={handleOpen} className={open ? "nav-shadow open" : 'nav-shadow'}></div>
         </Styles>
     )
 }

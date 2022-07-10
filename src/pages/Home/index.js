@@ -23,7 +23,7 @@ export default function Home() {
         <meta name="rating" content="General" />
         <link rel="canonical" href="https://react-giffy.netlify.app" />
       </Helmet>
-      <SearchForm />
+      {/* <SearchForm /> */}
       <div className="App-main">
         <div className="App-results">
           <h3 className="App-title title">{text.home.title}</h3>

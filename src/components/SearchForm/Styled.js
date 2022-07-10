@@ -2,18 +2,11 @@ import Screen from "style/Screen";
 import styled from "styled-components";
 
 export const Styles = styled.form`
-  /* position: sticky;
-  top: 5em; 
-  
-
-  pasarlo a nav
-  */
   position: relative;
   width: 100%;
-  margin: 0 auto 1em;
-  padding: 1em;
 
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 
@@ -24,14 +17,15 @@ export const Styles = styled.form`
   z-index: 10;
 
   .search {
-    width: 100%;
+    flex: 1 1 1px;
     border-radius: 0;
+    border: none;
     outline-color: var(--color);
     border-top-left-radius: var(--border-radius);
     border-bottom-left-radius: var(--border-radius);
+
     background-color: var(--secondary-background);
     color: var(--primary-letter-color);
-    border: none;
     box-shadow: 0 0 1em var(--primary-background) inset;
   }
 

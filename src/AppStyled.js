@@ -16,6 +16,10 @@ export const AppStyled = styled.div`
     margin: 1em 0;
   }
 
+  ${Screen.md(`
+    padding-top: 0;
+  `)}
+
   ${Screen.lg(`
     .App-main {
       grid-template-columns: 1fr 280px;
