@@ -82,7 +82,7 @@ export const Styles = styled.nav`
 
     .btnLogin{
         order: 1;
-        font-size: .9em;
+        font-size: .85em;
         width: 100%;
     }
 

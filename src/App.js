@@ -3,6 +3,7 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 // Context
 import { GifsContextProvider } from "./context/GifsContext";
+import AuthContext from "./context/AuthContext";
 
 // Components
 import SearchResults from "./pages/SearchResults";
@@ -21,23 +22,28 @@ const HomePage = React.lazy(() => import("./pages/Home"));
 export default function App() {
   return (
     <AppStyled>
-      <BrowserRouter>
-        <Suspense fallback={"Cargando"}>
-          <Nav />
-          <section className="App-content">
-            <GifsContextProvider>
-              <Routes>
-                <Route index element={<HomePage/>} />
-                <Route path="/search/:keyword/:rating" element={<SearchResults />} />
-                <Route path="/gif/:id" element={<Detail />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="*" element={<Error404 />} />
-              </Routes>
-            </GifsContextProvider>
-          </section>
-          <Footer />
-        </Suspense>
-      </BrowserRouter>
+      <AuthContext>
+        <BrowserRouter>
+          <Suspense fallback={"Cargando"}>
+            <Nav />
+            <section className="App-content">
+              <GifsContextProvider>
+                <Routes>
+                  <Route index element={<HomePage />} />
+                  <Route
+                    path="/search/:keyword/:rating"
+                    element={<SearchResults />}
+                  />
+                  <Route path="/gif/:id" element={<Detail />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="*" element={<Error404 />} />
+                </Routes>
+              </GifsContextProvider>
+            </section>
+            <Footer />
+          </Suspense>
+        </BrowserRouter>
+      </AuthContext>
     </AppStyled>
   );
 }

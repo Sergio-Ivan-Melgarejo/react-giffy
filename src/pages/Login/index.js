@@ -1,16 +1,26 @@
 import React from "react";
-import { Context } from "context/LanguageContext";
 import { useNavigate } from "react-router-dom";
+
+// Hook
+import useAuth from "hooks/useAuth";
+
+// context
+import { Context } from "context/LanguageContext";
 
 
 const Login = () => {
     const [username, setUsername] = React.useState("");
     const [password, setPassword] = React.useState("");
     const navigate = useNavigate();
+    const {login, isLogged} = useAuth()
+
+    React.useEffect(() => {
+       if(isLogged) navigate("/")
+    }, [isLogged,navigate]);
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        navigate("/")
+        login()
     }
 
     const {text} = React.useContext(Context);

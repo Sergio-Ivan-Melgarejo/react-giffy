@@ -12,9 +12,11 @@ import SearchForm from "components/SearchForm";
 import { Logo, NavButton } from "components/__subComponents";
 import { Link } from "react-router-dom";
 
-const isLogged = false;
+import useAuth from "hooks/useAuth";
 
 const Nav = () => {
+  const { isLogged, logout }= useAuth()
+
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(!open);
 
@@ -43,7 +45,7 @@ const Nav = () => {
 
         {/* button login */}
         {isLogged ? (
-          <button className="btnLogin btn btn-2">{text.nav.btnLogout}</button>
+          <Link to="/" onClick={logout} className="btnLogin btn btn-2">{text.nav.btnLogout}</Link>
         ) : (
           <Link to="/login" className="btnLogin btn btn-2">
             {text.nav.btnLogin}
