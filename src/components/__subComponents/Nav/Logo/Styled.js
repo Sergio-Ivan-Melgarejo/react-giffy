@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Screen from "../../../style/Screen";
+import Screen from "../../../../style/Screen";
 
 export const Styles = styled.div`
     position: relative;

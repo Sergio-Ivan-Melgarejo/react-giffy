@@ -5,6 +5,7 @@ export const Styles = styled.footer`
     text-align: center;
     padding: 1em;
     background-color: var(--secondary-background);
+    box-shadow: var(--box-shadow);
 
     .footer__text{
         margin: 0 0 .5em;

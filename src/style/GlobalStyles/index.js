@@ -24,6 +24,7 @@ export default createGlobalStyle`
     *, *::after, *::before {
         margin: 0;
         box-sizing: border-box;
+        outline-color: var(--color);
     }
 
     body {

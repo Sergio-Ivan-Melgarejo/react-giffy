@@ -1,4 +1,4 @@
 import NavButton from "./Nav/NavButton";
-import Logo from "./Logo";
+import Logo from "./Nav/Logo";
 
 export { NavButton, Logo}

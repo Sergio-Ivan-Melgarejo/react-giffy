@@ -158,6 +158,7 @@ export const Styles = styled.nav`
             background-color: var(--secondary-background);
             border-radius: var(--border-radius);
             padding: 0 1em 0 8.5em;
+            box-shadow: var(--box-shadow);
         }
 
     `)}
