@@ -4,6 +4,12 @@ export const texts = {
             seoTitle: "Home | Giffy",
             title: "Last Search",
         },
+        Login: {
+            title: "Login",
+            inputUser: "User name",
+            inputPassword: "Password",
+            inputSubmit: "Login"
+        },
         FormSearch: {
             placeholder: "Gif ...",
             btnSearch: "Search",
@@ -13,13 +19,20 @@ export const texts = {
             btnLanguage: "Español",
             darkTheme: "Dark Theme",
             lightTheme: "Ligth Theme",
-            btnLoggin: "Loggin"
+            btnLogin: "Login",
+            btnLogout: "Logout",
         }
     },
     es: {
         home: {
             seoTitle: "Inicio | Giffy",
             title:"Última búsqueda",
+        },
+        Login: {
+            title: "Ingresar",
+            inputUser: "Nombre de Usuario",
+            inputPassword: "Contraseña",
+            inputSubmit: "Ingresar"
         },
         FormSearch: {
             placeholder: "Gif ...",
@@ -30,7 +43,8 @@ export const texts = {
             btnLanguage: "English",
             darkTheme: "Tema Oscuro",
             lightTheme: "Tema Claro",
-            btnLoggin: "Ingresar"
+            btnLogin: "Ingresar",
+            btnLogout: "Cerrar sesión",
         }
     },
 }

@@ -31,6 +31,7 @@ export const Styles = styled.nav`
         position: sticky;
         top: -5em;
         transform: translate(0%);
+        margin-bottom: 1em;
     `)}
     
     
@@ -79,8 +80,9 @@ export const Styles = styled.nav`
         width: 100%;
     }
 
-    .btnLoggin{
+    .btnLogin{
         order: 1;
+        font-size: .9em;
         width: 100%;
     }
 
@@ -144,7 +146,7 @@ export const Styles = styled.nav`
             width: auto;
         }
         
-        .btnLoggin{
+        .btnLogin{
             order: 1;
             width: auto;
             align-self: flex-start;

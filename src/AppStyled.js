@@ -18,6 +18,7 @@ export const AppStyled = styled.div`
 
   ${Screen.md(`
     padding-top: 0;
+    grid-template-rows: min-content 1fr min-content;
   `)}
 
   ${Screen.lg(`

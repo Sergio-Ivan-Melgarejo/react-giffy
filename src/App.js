@@ -10,6 +10,7 @@ import Detail from "./pages/Detail";
 import Nav from "components/Nav";
 import Footer from "components/Footer";
 import Error404 from "pages/Error404";
+import Login from "pages/Login";
 
 // Style
 import { AppStyled } from "AppStyled";
@@ -27,7 +28,8 @@ export default function App() {
               <Route path="/" component={HomePage} />
               <Route path="/search/:keyword/:rating?" component={SearchResults} />
               <Route path="/gif/:id" component={Detail} />
-              <Route path="*" component={Error404} />
+              <Route path="/login" component={Login} />
+              <Route path="/:rest*" component={Error404} />
             </GifsContextProvider>
           </section>
           <Footer />
