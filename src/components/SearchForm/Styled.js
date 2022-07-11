@@ -51,16 +51,16 @@ export const Styles = styled.form`
     font-weight: bolder;
     padding:  .3em .6em; 
     border-radius: .3em;
-    transform: translate(-1em,-1.5em);
+    transform: translate(-100%,-1.5em);
 
     &::after{
       content: "";
       position: absolute;
       width: .5em;
       height: .5em;
-      bottom: 0;
-      left: 50%;
-      transform: translate(50%, 100%);
+      bottom: 1px;
+      right: 0;
+      transform: translate(-50%, 100%);
       background: #e32020;
       clip-path: polygon(80% 0, 0 0, 100% 100%);
     }
