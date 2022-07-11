@@ -17,9 +17,9 @@ export function LanguageProvider({ children }) {
         return newLang
     })
   }
-
+  
   return (
-    <Context.Provider value={{ changeLanguage, text }}>
+    <Context.Provider value={{ changeLanguage, text, language }}>
       {children}
     </Context.Provider>
   );

@@ -7,6 +7,9 @@ import { Context } from "context/LanguageContext";
 import arrowUp from "../../../../assets/icon/angle-double-up-solid.svg";
 import arrowDown from "../../../../assets/icon/angle-double-down-solid.svg";
 
+// Styles
+import { Styles } from "./Styled";
+
 const RATING = ["g", "pg", "pg-13", "r"];
 
 const Select = ({ handleSelect }) => {
@@ -15,17 +18,17 @@ const Select = ({ handleSelect }) => {
 
   const { text } = React.useContext(Context);
   return (
-    <div className="container">
+    <Styles>
       <select className="btn btn-1 btn-select" onClick={handleClick} onChange={handleSelect}>
         <option disabled>{text.FormSearch.rating}</option>
         {RATING.map((ele) => (
           <option key={ele} value={ele}>
-            {ele}
+            {ele.toUpperCase()}
           </option>
         ))}
       </select>
       <img className="arrow" src={open ? arrowUp : arrowDown} alt="" />
-    </div>
+    </Styles>
   );
 };
 

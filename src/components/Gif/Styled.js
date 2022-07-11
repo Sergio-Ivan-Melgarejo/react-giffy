@@ -42,7 +42,7 @@ export const Styles = styled.div`
     justify-content: center;
 
     background: linear-gradient(180deg, transparent 0%, #000);
-    color: var(--primary-letter-color);
+    color: #fff;
 
     transition: all 0.3s ease-in;
   }

@@ -24,7 +24,7 @@ function FormSearch({ initialRating = "g", initialKeyword = "" }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (keyword !== "" && keyword !== false) {
-      pushLocation(`/search/${keyword}/${rating}`);
+      pushLocation(`/search/${keyword}/${rating || "g"}`);
     }
   };
 

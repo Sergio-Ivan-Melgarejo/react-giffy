@@ -18,6 +18,7 @@ export const Styles = styled.nav`
     box-shadow: var(--box-shadow);
     transform: translate(-50%);
     z-index: 100; 
+        box-sizing: border-box;
 
     ${Screen.md(`
         border-radius: var(--border-radius);
@@ -36,6 +37,8 @@ export const Styles = styled.nav`
     /****************  links  *********************/
     
     .nav__links{
+        box-sizing: border-box;
+        flex: 1 1 1px;
         position: absolute;
         bottom: -1px;
         right: 0;
@@ -105,7 +108,7 @@ export const Styles = styled.nav`
 
     ${Screen.md(`
         .nav__links{
-            flex: 1 1 1px;
+            width: calc(100% - 2em);
             position: absolute;
             bottom: -1px;
             right: 0;
@@ -121,7 +124,7 @@ export const Styles = styled.nav`
             
             background-color: transparent;
             transform: translate(0);
-            transition: transform 0s ;
+            // transition: transform 0s ;
             z-index: 5; 
         }
         

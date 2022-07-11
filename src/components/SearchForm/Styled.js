@@ -37,11 +37,6 @@ export const Styles = styled.form`
     border: none;
   }
 
-  .btn-select{
-    flex: 1 1 1px;
-    appearance:none;
-  }
-
   .btn-select:hover{
     color: var(--color);
     background-color: var(--primary-background);
@@ -71,28 +66,11 @@ export const Styles = styled.form`
     }
   }
 
-  .container:nth-child(1){width: 100%;}
-  .container:nth-child(2){flex: 1 1 1px;}
-    
+  .container{}
 
   .container{
+    width: 100%;
     position: relative;
-
-    .arrow{
-      width: 1em;
-      height: 1em;
-      fill: red;
-      background-color: var(--color);
-      padding: .1em;
-      border-radius: 50%;
-      position: absolute;
-      right: 0;
-      top: 50%;
-      transform: translate(-50%, -50%);
-    }
-    &:hover .arrow{
-      background-color: var(--color-hover);
-    }
   }
 
   ${Screen.md(`
