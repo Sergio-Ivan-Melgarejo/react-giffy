@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "wouter";
+import { Link } from "react-router-dom";
 // extra
 import logoSVGLight from "assets/logo/logo_small_icon_only.png"
 import logoSVGDark from "assets/logo/logo_small_icon_only_inverted.png"

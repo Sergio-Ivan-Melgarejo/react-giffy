@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation } from "wouter";
+import { useNavigate } from "react-router-dom";
 import { Styles } from "./Styled";
 
 // Components
@@ -20,11 +20,11 @@ function FormSearch({ initialRating = "g", initialKeyword = "" }) {
   const handleSearch = (evet) => updateKeyword(evet.target.value);
   const handleSelect = (evet) => updateRating(evet.target.value);
 
-  const [_, pushLocation] = useLocation();
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     if (keyword !== "" && keyword !== false) {
-      pushLocation(`/search/${keyword}/${rating || "g"}`);
+      navigate(`/search/${keyword}/${rating || "g"}`);
     }
   };
 

@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { Route } from "wouter";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 // Context
 import { GifsContextProvider } from "./context/GifsContext";
@@ -21,19 +21,23 @@ const HomePage = React.lazy(() => import("./pages/Home"));
 export default function App() {
   return (
     <AppStyled>
+      <BrowserRouter>
         <Suspense fallback={"Cargando"}>
           <Nav />
           <section className="App-content">
             <GifsContextProvider>
-              <Route path="/" component={HomePage} />
-              <Route path="/search/:keyword/:rating?" component={SearchResults} />
-              <Route path="/gif/:id" component={Detail} />
-              <Route path="/login" component={Login} />
-              <Route path="/:rest*" component={Error404} />
+              <Routes>
+                <Route index element={<HomePage/>} />
+                <Route path="/search/:keyword/:rating" element={<SearchResults />} />
+                <Route path="/gif/:id" element={<Detail />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="*" element={<Error404 />} />
+              </Routes>
             </GifsContextProvider>
           </section>
           <Footer />
         </Suspense>
+      </BrowserRouter>
     </AppStyled>
   );
 }

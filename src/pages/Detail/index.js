@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'wouter';
+import { Navigate, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
 // Hooks
@@ -11,7 +11,8 @@ import Spinner from 'components/Spinner';
 // Styles 
 import { Styles } from './Styled';
 
-const Detail = ({params}) => {
+const Detail = () => {
+  const params = useParams()
   let {gif, isLoading, isError} = useSingleGif({ id: params.id })
   
   if ( isLoading ) return (<>
@@ -21,7 +22,7 @@ const Detail = ({params}) => {
       <meta name="description" content={"Cargando..."} />
     </Helmet>
   </>)
-  if ( isError ) return <Redirect to='/404' />
+  if ( isError ) return <Navigate to='/404' />
   if (!gif) return null
 
 

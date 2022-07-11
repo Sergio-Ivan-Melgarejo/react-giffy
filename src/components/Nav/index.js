@@ -10,7 +10,7 @@ import { Styles } from "./Styled";
 // extra
 import SearchForm from "components/SearchForm";
 import { Logo, NavButton } from "components/__subComponents";
-import { Link } from "wouter";
+import { Link } from "react-router-dom";
 
 const isLogged = false;
 
