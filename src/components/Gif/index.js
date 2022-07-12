@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import ButtonFav from 'components/__subComponents/Gif/ButtonFav'
+import { ButtonFav } from 'components/__subComponents/Gif'
 import { Styles } from './Styled'
 
 function Gif ({ title, id, url }) {
@@ -8,7 +8,7 @@ function Gif ({ title, id, url }) {
   return (
     <Styles key={id}>
       <div className="button-container">
-        <ButtonFav />
+        <ButtonFav id={id} />
       </div>
       <Link className='gif__link' to={`/gif/${id}`}>
         <img className="gif__img" loading='lazy' src={url} alt="" />
