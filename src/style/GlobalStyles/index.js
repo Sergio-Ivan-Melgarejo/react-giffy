@@ -16,6 +16,8 @@ export default createGlobalStyle`
         --line-color-2:#187de260;
         --line-color-3:#187de220;
 
+        --red: #F32424;
+
         --box-shadow: 0 0 1em #00000050;
         --border-radius: .3em;
         --transition: background-color .3s ease-in-out, color .3s ease-in-out;
@@ -24,6 +26,7 @@ export default createGlobalStyle`
     *, *::after, *::before {
         margin: 0;
         box-sizing: border-box;
+        outline-color: var(--color);
     }
 
     body {

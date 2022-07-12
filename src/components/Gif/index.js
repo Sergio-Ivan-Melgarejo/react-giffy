@@ -1,10 +1,15 @@
 import React from 'react'
-import {Link} from 'wouter'
+import {Link} from 'react-router-dom'
+import { ButtonFav } from 'components/__subComponents/Gif'
 import { Styles } from './Styled'
 
 function Gif ({ title, id, url }) {
+  
   return (
     <Styles key={id}>
+      <div className="button-container">
+        <ButtonFav id={id} />
+      </div>
       <Link className='gif__link' to={`/gif/${id}`}>
         <img className="gif__img" loading='lazy' src={url} alt="" />
         <h4 className="gif__title">{title}</h4>

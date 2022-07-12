@@ -8,6 +8,7 @@ export const Styles = styled.div`
   /* width: 100%; */
   height: 20em;
   text-align: center;
+  position: relative;
 
   .gif__link {
     display: block;
@@ -42,7 +43,7 @@ export const Styles = styled.div`
     justify-content: center;
 
     background: linear-gradient(180deg, transparent 0%, #000);
-    color: var(--primary-letter-color);
+    color: #fff;
 
     transition: all 0.3s ease-in;
   }
@@ -73,11 +74,11 @@ export const Styles = styled.div`
     background-color: var(--line-color-1);
   }
   .gif__line:nth-child(2) {
-    width: 80%;
+    width: 90%;
     background-color: var(--line-color-2);
   }
   .gif__line:nth-child(3) {
-    width: 60%;
+    width: 80%;
     background-color: var(--line-color-3);
   }
 

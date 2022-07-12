@@ -1,41 +1,55 @@
 import React from "react";
-import { useLocation } from "wouter";
+import { useNavigate } from "react-router-dom";
 import { Styles } from "./Styled";
 
-// language
-import { languageData } from "languages/english";
-const lang = "English";
+// Components
+import { Select } from "components/__subComponents/SearchForm";
 
-function FormSearch() {
-  const [keyword, setKeyword] = React.useState("");
-  const [paht, pushLocation] = useLocation();
+// hooks
+import { useForm } from "./hook";
 
+// context
+import { Context } from "context/LanguageContext";
+
+function FormSearch({ initialRating = "g", initialKeyword = "" }) {
+  const { keyword, times, rating, updateKeyword, updateRating } = useForm({
+    initialKeyword,
+    initialRating,
+  });
+
+  const handleSearch = (evet) => updateKeyword(evet.target.value);
+  const handleSelect = (evet) => updateRating(evet.target.value);
+
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     if (keyword !== "" && keyword !== false) {
-      pushLocation(`/search/${keyword}`);
+      navigate(`/search/${keyword}/${rating || "g"}`);
     }
   };
 
-  const handleChange = (evet) => {
-    setKeyword(evet.target.value);
-  };
-
+  const { text } = React.useContext(Context);
   return (
     <Styles onSubmit={handleSubmit}>
-      <input
-        value={keyword}
-        onChange={handleChange}
-        className="btn search"
-        type="search"
-        placeholder={languageData[lang].FormSearch.placeholder}
-        aria-label="Search"
-      />
+      <div className="container">
+        <input
+          value={keyword}
+          onChange={handleSearch}
+          className="btn search"
+          type="search"
+          placeholder={text.FormSearch.placeholder}
+          aria-label="Search"
+        />
+        {times > 0 && <small className="times">{times}</small>}
+      </div>
+      <Select handleSelect={handleSelect} />
       <input
         className="btn btn-2 btn-search"
         type="submit"
-        value={languageData[lang].FormSearch["btn-1"]}
+        value={text.FormSearch.btnSearch}
       />
+
+
     </Styles>
   );
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "wouter";
+import { Link } from "react-router-dom";
 import img from "../../assets/image/error.gif"
 
 // Components
@@ -24,7 +24,7 @@ const Error404 = () => {
         <img src={img} alt="" />
         <p>
           <span>Oops! There’s nothing here.</span>
-          <span>For GIFs that DO exist, here's our trending feed...</span>
+          <span>For GIFs that DO exist, here's some gifs about this...</span>
         </p>
      </div>
       <ListOfGifs gifs={gifs} />

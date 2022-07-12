@@ -64,7 +64,7 @@ export const Styles = styled.div`
 
     .detail__top .detail__line:nth-child(3),
     .detail__bottom .detail__line:nth-child(1){
-        width: 100%;
+        width: calc(100% - 2px);
     }
 
     .detail__top .detail__line:nth-child(2),
@@ -78,12 +78,12 @@ export const Styles = styled.div`
     }
 
     .detail__top{
-        top: 0;
+        top: 1px;
         transform: translateY(-100%);
     }
 
     .detail__bottom{
-        bottom: 0;
+        bottom: 1px;
         transform: translateY(100%);
     }
 
@@ -96,12 +96,12 @@ export const Styles = styled.div`
     }
 
     .detail__right{
-        right: 0;
+        right: 1px;
         transform: translate(100%);
     }
 
     .detail__left{
-        left: 0;
+        left: 1px;
         transform: translate(-100%);
     }
 
@@ -112,7 +112,7 @@ export const Styles = styled.div`
 
     .detail__left .detail__line:nth-child(3),
     .detail__right .detail__line:nth-child(1){
-        height: 100%;
+        height: calc(100% - 2px);
     }
 
     .detail__left .detail__line:nth-child(2),

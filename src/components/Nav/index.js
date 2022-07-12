@@ -1,71 +1,68 @@
-import React,{useState} from 'react'
-import {Link} from 'wouter';
+import React, { useState } from "react";
 
-import logoSVGLight from "assets/logo/logo_small_icon_only.png"
-import logoSVGDark from "assets/logo/logo_small_icon_only_inverted.png"
-import { Styles } from './Styled';
+// Context
+import { Context as ContextLang } from "context/LanguageContext";
+import { Context as ContextTheme } from "context/ThemeContext";
 
-const theme = "dark";
+// style
+import { Styles } from "./Styled";
+
+// extra
+import SearchForm from "components/SearchForm";
+import { Logo, NavButton } from "components/__subComponents";
+import { Link } from "react-router-dom";
+
+import useAuth from "hooks/useAuth";
 
 const Nav = () => {
-    const [openNav, setOpenNav] = useState(false);
+  const { isLogged, logout }= useAuth()
 
-    const handleOpenNav = () => setOpenNav(!openNav);
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(!open);
 
-    return (
-        <Styles>
-            <Link className="logo-container" to="/" >
-                <img className='logo' src={theme === "dark" ? logoSVGDark : logoSVGLight} alt="logo"/>
-                <h1 className='color'>Giffy</h1>
-            </Link>
+  const { text, changeLanguage } = React.useContext(ContextLang);
+  const { changeTheme, dark } = React.useContext(ContextTheme);
+  return (
+    <Styles>
+      <Logo dark={dark} />
+      <NavButton handleOpen={handleOpen} open={open} />
 
-            {/* nav button */}
-            <button onClick={handleOpenNav} className={openNav ? "nav-btn open" : "nav-btn"} type="button">
-                <div className='line-1'></div>
-                <div className='line-2'></div>
-                <div className='line-3'></div>
+      <div className={open ? "nav__links open" : "nav__links"}>
+        <ul className="nav__ul">
+          {/* button language */}
+          <li className="nav__li">
+            <button onClick={changeLanguage} className="btn btn-1">
+              {text.nav.btnLanguage}
             </button>
+          </li>
+          {/* button theme */}
+          <li className="nav__li">
+            <button onClick={changeTheme} className="btn btn-1">
+              {dark ? text.nav.lightTheme : text.nav.darkTheme}
+            </button>
+          </li>
+        </ul>
 
-            <div className="nav__links">
-                <ul className="nav__ul">
-                    {/* button language */}
-                    <li className="nav__li">
-                        <button className='btn btn-1'>
-                            Spanish
-                        </button>
-                    </li>
-                    {/* button theme */}
-                    <li className="nav__li">
-                        <button className="btn btn-1" >theme</button>
-                    </li>
-                </ul>
+        {/* button login */}
+        {isLogged ? (
+          <Link to="/" onClick={logout} className="btnLogin btn btn-2">{text.nav.btnLogout}</Link>
+        ) : (
+          <Link to="/login" className="btnLogin btn btn-2">
+            {text.nav.btnLogin}
+          </Link>
+        )}
 
-                {/* button loggin */}
-                <button className='btn btn-2'>loggin</button>
-            </div>
+        <div className="search-container">
+          <SearchForm />
+        </div>
+      </div>
 
-            {/* side bar */}
-            <div className={openNav ? "nav__side-bar open" : "nav__side-bar"}>
-                <ul className="nav__ul">
-                    {/* button language */}
-                    <li className="nav__li">
-                        <button className='btn btn-1'>
-                            Spanish
-                        </button>
-                    </li>
-                    {/* button theme */}
-                    <li className="nav__li">
-                        <button className="btn btn-1" >theme</button>
-                    </li>
-                </ul>
+      <div
+        onClick={handleOpen}
+        className={open ? "nav-shadow open" : "nav-shadow"}
+      ></div>
+    </Styles>
+  );
+};
 
-                {/* button loggin */}
-                <button className='btn btn-2'>loggin</button>
-            </div>
-
-            <div onClick={handleOpenNav} className={openNav ? "nav-shadow open" : 'nav-shadow'}></div>
-        </Styles>
-    )
-}
-
-export default Nav
+export default Nav;

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { Context } from "context/ThemeContext";
 import { ThemeProvider } from "styled-components";
 
 const darkTheme = {
@@ -15,8 +16,7 @@ const lightTheme = {
 }
 
 const Theme = ({children}) => {
-    // hacer un redux para cambiar o reducer
-    const [dark, setDark] = useState(true);
+    const {dark} = React.useContext(Context)
     return <ThemeProvider theme={dark ? darkTheme : lightTheme}>{children}</ThemeProvider>;
 };
 

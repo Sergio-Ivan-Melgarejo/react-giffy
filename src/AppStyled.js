@@ -2,22 +2,24 @@ import Screen from "style/Screen";
 import styled from "styled-components";
 
 export const AppStyled = styled.div`
-    min-height: 100vh;
-    max-width: 1600px;
-    margin: auto;
+  min-height: 100vh;
+  max-width: 1600px;
+  margin: auto;
+  padding: 6em 1em 0;
 
-    display: grid;
-    grid-template-rows: min-content 1fr min-content;
-    
-
-    ${Screen.md(`
-        padding: 0 1em;
-    `)}
+  display: grid;
+  grid-template-rows: 1fr min-content;
 
   .App-main {
     display: grid;
     grid-template-columns: 1fr;
+    margin: 1em 0;
   }
+
+  ${Screen.md(`
+    padding-top: 0;
+    grid-template-rows: min-content 1fr min-content;
+  `)}
 
   ${Screen.lg(`
     .App-main {
@@ -34,7 +36,7 @@ export const AppStyled = styled.div`
       position: sticky;
       top: 6em;
       background:var(--secondary-background);
-      margin: 0 1em;
+      margin-left: 1em;
       border-radius: var(--border-radius);
     }
 
