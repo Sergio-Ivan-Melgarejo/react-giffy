@@ -46,7 +46,7 @@ export const Styles = styled.form`
     position: absolute;
     left: 0;
     top: 0;
-    background: #e32020;
+    background: var(--red);
     color: #fff;
     font-weight: bolder;
     padding:  .3em .6em; 
