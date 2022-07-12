@@ -8,7 +8,8 @@ export const texts = {
             title: "Login",
             inputUser: "User name",
             inputPassword: "Password",
-            inputSubmit: "Login"
+            inputSubmit: "Login",
+            error: "There was a problem, please try again."
         },
         FormSearch: {
             placeholder: "Gif ...",
@@ -32,7 +33,8 @@ export const texts = {
             title: "Ingresar",
             inputUser: "Nombre de Usuario",
             inputPassword: "Contraseña",
-            inputSubmit: "Ingresar"
+            inputSubmit: "Ingresar",
+            error: "Hubo un problema, inténtalo de nuevo."
         },
         FormSearch: {
             placeholder: "Gif ...",

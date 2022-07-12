@@ -8,6 +8,7 @@ export const Styles = styled.div`
   /* width: 100%; */
   height: 20em;
   text-align: center;
+  position: relative;
 
   .gif__link {
     display: block;
