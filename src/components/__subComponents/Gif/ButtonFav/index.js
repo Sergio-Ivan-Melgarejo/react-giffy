@@ -32,7 +32,7 @@ const ButtonFav = ({ id }) => {
     {
       showModal && (
         <Modal onClose={handleClose} >
-          <Login />
+          <Login onClose={handleClose} />
         </Modal>
       )
     }

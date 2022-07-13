@@ -13,7 +13,7 @@ import { Context } from "context/LanguageContext";
 // styles
 import { Styles } from "./styled";
 
-const Login = () => {
+const Login = ({onClose}) => {
   const { text } = React.useContext(Context);
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -21,8 +21,11 @@ const Login = () => {
   const { login, isLogged, isLoading, error } = useAuth();
 
   React.useEffect(() => {
-    if (isLogged) navigate("/");
-  }, [isLogged, navigate]);
+    if (isLogged) {
+      navigate("/");
+      onClose && onClose()
+    }
+  }, [isLogged, navigate, onClose]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

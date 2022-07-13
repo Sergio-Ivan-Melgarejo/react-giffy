@@ -6,6 +6,7 @@ const appearBg = keyframes`
     }
     100% {
         background-color: #00000099;
+        backdrop-filter: blur(4px);
     }
 `
 
@@ -49,7 +50,6 @@ export const Styles = styled.div`
         height: 100%;
         width: 100%;
         animation: ${appearBg} .3s ease-in forwards;
-        backdrop-filter: blur(4px);
     }
 
     .modal-container{

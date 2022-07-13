@@ -22,7 +22,7 @@ export default function useAuth() {
           setState({ loading: false, error: true });
         });
     },
-    [setJWT, jwt]
+    [setJWT]
   );
 
   const logout = React.useCallback(() => {

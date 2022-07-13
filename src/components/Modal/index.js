@@ -1,8 +1,8 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import { Styles } from "./styled";
 
 const Modal = ({ children, onClose }) => {
-
   return (
     <Styles>
       <div className="bg" onClick={onClose}></div>
@@ -18,4 +18,13 @@ const Modal = ({ children, onClose }) => {
   );
 };
 
-export default Modal;
+ function ModalPortal ({ children, onClose }) {
+  return ReactDOM.createPortal(
+    <Modal onClose={onClose}>
+      {children}
+    </Modal>,
+    document.getElementById('root')
+  )
+}
+
+export default ModalPortal;
