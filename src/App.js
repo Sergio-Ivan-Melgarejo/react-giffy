@@ -11,7 +11,7 @@ import Detail from "./pages/Detail";
 import Nav from "components/Nav";
 import Footer from "components/Footer";
 import Error404 from "pages/Error404";
-import Login from "pages/Login";
+import LoginPage from "pages/LoginPage";
 
 // Style
 import { AppStyled } from "AppStyled";
@@ -35,7 +35,7 @@ export default function App() {
                     element={<SearchResults />}
                   />
                   <Route path="/gif/:id" element={<Detail />} />
-                  <Route path="/login" element={<Login />} />
+                  <Route path="/login" element={<LoginPage />} />
                   <Route path="*" element={<Error404 />} />
                 </Routes>
               </GifsContextProvider>

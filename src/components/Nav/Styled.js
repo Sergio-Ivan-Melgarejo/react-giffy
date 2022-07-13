@@ -95,6 +95,7 @@ export const Styles = styled.nav`
         bottom: -1px;
 
         background-color: #00000099;
+        backdrop-filter: blur(4px);
         
         z-index: 99;
         cursor: pointer;

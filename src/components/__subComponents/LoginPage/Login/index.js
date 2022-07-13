@@ -33,29 +33,29 @@ const Login = () => {
 
   return (
     <Styles>
-      <div className="container">
+      <div className="login-container">
         <h2>{text.Login.title}</h2>
         <form onSubmit={handleSubmit}>
           <div>
-            {/* <label htmlFor="name">{text.Login.inputUser}</label> */}
+            <label htmlFor="username">{text.Login.inputUser}</label>
             <input
               className="btn"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               type="text"
               placeholder={`${text.Login.inputUser}...`}
-              id="name"
+              id="username"
             />
           </div>
           <div>
-            {/* <label htmlFor="name">{text.Login.inputPassword}</label> */}
+            <label htmlFor="password">{text.Login.inputPassword}</label>
             <input
               className="btn"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               type="password"
               placeholder={`${text.Login.inputPassword}...`}
-              id="name"
+              id="password"
             />
           </div>
           <div>
