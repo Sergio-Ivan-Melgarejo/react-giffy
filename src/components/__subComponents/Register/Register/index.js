@@ -23,12 +23,11 @@ const Register = () => {
 
         <Formik
           initialValues={initialValues}
-          onSubmit={(values) => {
-            console.log(values);
-            register(values);
+          onSubmit={( values,  ) => {
+            return register(values);
           }}
         >
-          {({ handleSubmit, handleChange, isSubmitting }) => (
+          {({ handleSubmit, handleChange, isSubmitting, errors }) => (
             <form onSubmit={handleSubmit}>
               <div>
                 <label htmlFor="username">{text.Login.inputUser}</label>

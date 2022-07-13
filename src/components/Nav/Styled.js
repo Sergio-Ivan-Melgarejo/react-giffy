@@ -54,7 +54,7 @@ export const Styles = styled.nav`
 
         background-color: var(--secondary-background);
         
-        transform: translate(100%,100%);
+        transform: translate(110%,100%);
         /* transition: transform .5s ease-in-out; */
         z-index: 100;
     }
