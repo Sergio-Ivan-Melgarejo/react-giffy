@@ -99,6 +99,11 @@ export default createGlobalStyle`
         }
     `)}
 
+    .btn[disabled] {
+        opacity: .3;
+        pointer-events: none;
+    }
+
     .btn-1 {
         color: var(--color);
         border-width: 1px;

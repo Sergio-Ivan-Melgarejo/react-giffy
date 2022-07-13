@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // Components
 import Spinner from "components/Spinner";
@@ -66,6 +66,7 @@ const Login = ({onClose}) => {
           </div>
           {error && <p className="error">{text.Login.error}</p>}
         </form>
+        <Link className="register" to="/register">{text.Login.register}</Link>
       </div>
     </Styles>
   );

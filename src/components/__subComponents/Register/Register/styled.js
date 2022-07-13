@@ -67,16 +67,5 @@ export const Styles = styled.div`
                 color: var(--red);
             }
         }
-
-        .register{
-            font-size: .9em;
-            color: var(--color);
-            transition: all .2s ease;
-
-            &:hover{
-               color: var(--color-hover);
-               text-decoration: underline;
-            }
-        }
     }
 `
