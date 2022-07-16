@@ -1,5 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import useAuth from "hooks/useAuth";
 import { Styles } from "./styled";
 import Modal from "components/Modal";
@@ -7,7 +6,6 @@ import { Login } from "components/__subComponents/LoginPage";
 
 const ButtonFav = ({ id }) => {
   const {isLogged, addFav, favs, deleteFav} = useAuth();
-  const navigate = useNavigate();
   const [showModal, setShowModal] = React.useState(false);
 
   const isFaved = favs.some(favID => favID === id)

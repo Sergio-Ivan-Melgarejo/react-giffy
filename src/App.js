@@ -16,6 +16,7 @@ import RegisterPage from "pages/RegisterPage";
 
 // Style
 import { AppStyled } from "AppStyled";
+import Spinner from "components/Spinner";
 
 // import Home from './pages/Home'
 const HomePage = React.lazy(() => import("./pages/Home"));
@@ -25,7 +26,7 @@ export default function App() {
     <AppStyled>
       <AuthContext>
         <BrowserRouter>
-          <Suspense fallback={"Cargando"}>
+          <Suspense fallback={<Spinner/>}>
             <Nav />
             <section className="App-content">
               <GifsContextProvider>

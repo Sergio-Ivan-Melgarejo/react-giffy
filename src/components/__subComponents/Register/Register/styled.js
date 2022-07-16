@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Screen from "style/Screen";
 
 export const Styles = styled.div`
     width: 80vw;
@@ -8,6 +9,10 @@ export const Styles = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    ${Screen.sm("font-size: 1.10em")}
+    ${Screen.md("font-size: 1.20em")}
+    ${Screen.lg("font-size: 1.30em")}
 
     .login-container{
         padding: 1em;
@@ -27,6 +32,7 @@ export const Styles = styled.div`
             color: var(--color);
             padding-bottom: .5em;
             text-align: left;
+            font-size: 1.5em;
         }
 
         form{
@@ -44,13 +50,14 @@ export const Styles = styled.div`
                 position: absolute;
                 top: 0;
                 left: 0;
-                font-size: .8em;
+                font-size: .9em;
                 color: var(--secondary-letter-color);
                 font-weight: bolder;
                 transform: translateY(-50%);
             }
 
             .btn:not(.btn-2){
+                font-size: 1em;
                 width: 100%;
                 box-shadow: var(--box-shadow) inset;
                 color: var(--primary-letter-color);
@@ -58,13 +65,21 @@ export const Styles = styled.div`
             }
 
             .btn-2{
+                font-size: 1em;
                 width: 100%;
                 color: var(--primary-letter-color);
+                text-align: center !important;
             }
+        }
 
-            .error{
-                font-size: .9em;
-                color: var(--red);
+        .login{
+            font-size: .9em;
+            color: var(--color);
+            transition: all .2s ease;
+
+            &:hover{
+            color: var(--color-hover);
+            text-decoration: underline;
             }
         }
     }

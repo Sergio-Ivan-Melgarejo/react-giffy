@@ -84,6 +84,7 @@ export const Styles = styled.nav`
         order: 1;
         font-size: .85em;
         width: 100%;
+        text-align: center;
     }
 
     .nav-shadow{

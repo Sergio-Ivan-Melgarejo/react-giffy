@@ -7,13 +7,12 @@ import {useGifs} from 'hooks/useGifs'
 // Components
 import ListOfGifs from 'components/ListOfGifs'
 import TrendingSearches from 'components/TrendingSearches'
-import SearchForm from "components/SearchForm"
 
 // Context
 import { Context } from "context/LanguageContext"
 
 export default function Home() {
-  const {loading, gifs} = useGifs()
+  const {gifs} = useGifs()
   const {text} = React.useContext(Context);
   return (
     <>

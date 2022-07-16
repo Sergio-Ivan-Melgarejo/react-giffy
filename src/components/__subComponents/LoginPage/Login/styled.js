@@ -1,3 +1,4 @@
+import Screen from "style/Screen";
 import styled from "styled-components";
 
 export const Styles = styled.div`
@@ -8,6 +9,11 @@ export const Styles = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    font-size: 1em;
+    ${Screen.sm("font-size: 1.10em")}
+    ${Screen.md("font-size: 1.20em")}
+    ${Screen.lg("font-size: 1.30em")}
 
     .login-container{
         padding: 1em;
@@ -52,6 +58,7 @@ export const Styles = styled.div`
 
             .btn:not(.btn-2){
                 width: 100%;
+                font-size: 1em;
                 box-shadow: var(--box-shadow) inset;
                 color: var(--primary-letter-color);
                 background-color: var(--primary-background);
@@ -59,12 +66,8 @@ export const Styles = styled.div`
 
             .btn-2{
                 width: 100%;
+                font-size: 1em;
                 color: var(--primary-letter-color);
-            }
-
-            .error{
-                font-size: .9em;
-                color: var(--red);
             }
         }
 

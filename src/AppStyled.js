@@ -23,8 +23,12 @@ export const AppStyled = styled.div`
 
   ${Screen.lg(`
     .App-main {
-      grid-template-columns: 1fr 280px;
+      grid-template-columns: 17em 1fr;
       position: relative;
+    }
+
+    .App-results{
+      order: 2;
     }
 
     .App-category {
@@ -36,8 +40,9 @@ export const AppStyled = styled.div`
       position: sticky;
       top: 6em;
       background:var(--secondary-background);
-      margin-left: 1em;
+      margin-right: 1em;
       border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
     }
 
     .Category-list {
