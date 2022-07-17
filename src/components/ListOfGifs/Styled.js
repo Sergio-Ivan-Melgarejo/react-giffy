@@ -6,7 +6,6 @@ export const Styles = styled.div`
   grid-gap: 2em 1em;
   grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
   grid-template-rows: masonry;
-  min-height: 100vh;
   margin-bottom: 2em;
 
   ${Screen.md(`

@@ -11,7 +11,6 @@ const AuthContext = ({ children }) => {
 
   React.useEffect(()=>{
     if(!jwt) return setFavs([])
-    console.log(jwt)
     getFavs({jwt}).then(setFavs)
   },[jwt])
 

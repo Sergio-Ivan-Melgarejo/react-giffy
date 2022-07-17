@@ -3,6 +3,7 @@ import React, { useCallback } from "react";
 const ACTION = {
   UPDATE_KEYWORD: "update_keyword",
   UPDATE_RATING: "update_rating",
+  RESET_TIMES: "reset_times",
 };
 
 const filterReducer = (state, action) => {
@@ -17,6 +18,11 @@ const filterReducer = (state, action) => {
       return {
         ...state,
         rating: action.payload,
+      };
+    case ACTION.RESET_TIMES:
+      return {
+        ...state,
+        times: 0,
       };
     default: {
       console.log(new Error(`Action ${action.type} not supported`));
@@ -42,6 +48,9 @@ export const useForm = ({ initialKeyword = "", initialRating = "g" }) => {
     (rating) => dispatch({ type: ACTION.UPDATE_RATING, payload: rating }),
     []
   );
+  const resetTimes = useCallback(() => {
+    dispatch({type:ACTION.RESET_TIMES})
+  },[])
 
-  return { keyword, times, rating, updateKeyword, updateRating };
+  return { keyword, times, rating, updateKeyword, updateRating, resetTimes };
 };

@@ -12,7 +12,7 @@ import { useForm } from "./hook";
 import { Context } from "context/LanguageContext";
 
 function FormSearch({ initialRating = "g", initialKeyword = "" }) {
-  const { keyword, times, rating, updateKeyword, updateRating } = useForm({
+  const { keyword, times, rating, updateKeyword, updateRating, resetTimes } = useForm({
     initialKeyword,
     initialRating,
   });
@@ -27,6 +27,7 @@ function FormSearch({ initialRating = "g", initialKeyword = "" }) {
       navigate(`/search/${keyword}/${rating || "g"}`);
     }
   };
+  const handleTimes = () => resetTimes()
 
   const { text } = React.useContext(Context);
   return (
@@ -40,7 +41,7 @@ function FormSearch({ initialRating = "g", initialKeyword = "" }) {
           placeholder={text.FormSearch.placeholder}
           aria-label="Search"
         />
-        {times > 0 && <small className="times">{times}</small>}
+        {times > 0 && <small onClick={handleTimes} className="times">{times}</small>}
       </div>
       <Select handleSelect={handleSelect} />
       <input

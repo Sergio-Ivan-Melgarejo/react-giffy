@@ -12,7 +12,7 @@ import TrendingSearches from 'components/TrendingSearches'
 import { Context } from "context/LanguageContext"
 
 export default function Home() {
-  const {gifs} = useGifs()
+  const {gifs} = useGifs({home: true})
   const {text} = React.useContext(Context);
   return (
     <>

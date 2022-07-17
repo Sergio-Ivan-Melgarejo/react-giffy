@@ -52,6 +52,7 @@ export const Styles = styled.form`
     padding:  .3em .6em; 
     border-radius: .3em;
     transform: translate(-100%,-1.5em);
+    cursor: pointer;
 
     &::after{
       content: "";
