@@ -22,12 +22,17 @@ export default createGlobalStyle`
         --border-radius: .3em;
         --transition: background-color .3s ease-in-out, color .3s ease-in-out;
 
-        --brand-color_1: #00ff99;
-        --brand-color_2: #00ccff;
-        --brand-color_3: #9933ff;
-        --brand-color_4: tomato;
-        --brand-color_5: #fff35c;
-        --brand-color_6: #8429de;
+        --brand-color_1: #f5e831;
+        --brand-color_2: #22f8a2;
+        --brand-color_3: #16cffd;
+        --brand-color_4: #922bf8;
+        --brand-color_5: #f74323;
+            
+        --brand-color_1_hover: #f7ec59;
+        --brand-color_2_hover: #5effbf;
+        --brand-color_3_hover: #4bdafd;
+        --brand-color_4_hover: #a451f7;
+        --brand-color_5_hover: #fa6b52;
 
         --terciary-background: ${({theme}) => theme.terciaryBG};
     }

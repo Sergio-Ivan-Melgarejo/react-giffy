@@ -21,14 +21,19 @@ export const Styles = styled.section`
 `
 
 const generateMultiColorCategory = props => {
-  const NEED_WHITE_COLOR = [3, 4]
+  const NEED_WHITE_COLOR = [4,5]
   const colorIndex = props.index % 5 + 1
   const needWhite = NEED_WHITE_COLOR.includes(colorIndex)
   const colorText = needWhite ? '#fff' : '#222'
 
   return `
     background-color: var(--brand-color_${colorIndex});
-    color: ${colorText};`
+    color: ${colorText};
+    
+    :hover{
+      background-color: var(--brand-color_${colorIndex}_hover);
+    }
+    `
 }
 
 export const LiStyles = styled.section`

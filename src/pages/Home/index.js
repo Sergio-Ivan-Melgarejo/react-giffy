@@ -26,7 +26,7 @@ export default function Home() {
       <div className="App-main">
         <div className="App-results">
           <h3 className="App-title title">{text.home.title}</h3>
-          <ListOfGifs gifs={gifs} />
+          <ListOfGifs gifs={gifs} home={true} />
         </div>
         <div className="App-category"> 
           <TrendingSearches />
