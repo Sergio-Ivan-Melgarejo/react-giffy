@@ -9,7 +9,11 @@ export const texts = {
             inputUser: "User name",
             inputPassword: "Password",
             inputSubmit: "Login",
-            error: "There was a problem, please try again."
+            error: "There was a problem, please try again.",
+            register:"You do not have an account?"
+        },
+        Register: {
+            title: "Register"
         },
         FormSearch: {
             placeholder: "Gif ...",
@@ -34,7 +38,11 @@ export const texts = {
             inputUser: "Nombre de Usuario",
             inputPassword: "Contraseña",
             inputSubmit: "Ingresar",
-            error: "Hubo un problema, inténtalo de nuevo."
+            error: "Hubo un problema, inténtalo de nuevo.",
+            register:"¿No tienes una cuenta?"
+        },
+        Register: {
+            title: "Registro"
         },
         FormSearch: {
             placeholder: "Gif ...",

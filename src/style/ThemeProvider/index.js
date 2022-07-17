@@ -5,12 +5,14 @@ import { ThemeProvider } from "styled-components";
 const darkTheme = {
     primaryBG: "#151515",
     secondaryBG: "#222",
+    terciaryBG: "#222",
     primaryLetterColor: "#F0F1F7",
     secondaryLetterColor: "#F8F8F8",
 }
 const lightTheme = {
     primaryBG: "#F0F1F7",
     secondaryBG: "#F8F8F8",
+    terciaryBG: "#d8d8d8",
     primaryLetterColor: "#151515",
     secondaryLetterColor: "#222",
 }

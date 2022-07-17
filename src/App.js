@@ -11,10 +11,12 @@ import Detail from "./pages/Detail";
 import Nav from "components/Nav";
 import Footer from "components/Footer";
 import Error404 from "pages/Error404";
-import Login from "pages/Login";
+import LoginPage from "pages/LoginPage";
+import RegisterPage from "pages/RegisterPage";
 
 // Style
 import { AppStyled } from "AppStyled";
+import Spinner from "components/Spinner";
 
 // import Home from './pages/Home'
 const HomePage = React.lazy(() => import("./pages/Home"));
@@ -24,7 +26,7 @@ export default function App() {
     <AppStyled>
       <AuthContext>
         <BrowserRouter>
-          <Suspense fallback={"Cargando"}>
+          <Suspense fallback={<Spinner/>}>
             <Nav />
             <section className="App-content">
               <GifsContextProvider>
@@ -35,7 +37,8 @@ export default function App() {
                     element={<SearchResults />}
                   />
                   <Route path="/gif/:id" element={<Detail />} />
-                  <Route path="/login" element={<Login />} />
+                  <Route path="/login" element={<LoginPage />} />
+                  <Route path="/register" element={<RegisterPage />} />
                   <Route path="*" element={<Error404 />} />
                 </Routes>
               </GifsContextProvider>

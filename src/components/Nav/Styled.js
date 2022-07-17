@@ -54,7 +54,7 @@ export const Styles = styled.nav`
 
         background-color: var(--secondary-background);
         
-        transform: translate(100%,100%);
+        transform: translate(110%,100%);
         /* transition: transform .5s ease-in-out; */
         z-index: 100;
     }
@@ -84,6 +84,7 @@ export const Styles = styled.nav`
         order: 1;
         font-size: .85em;
         width: 100%;
+        text-align: center;
     }
 
     .nav-shadow{
@@ -95,6 +96,7 @@ export const Styles = styled.nav`
         bottom: -1px;
 
         background-color: #00000099;
+        backdrop-filter: blur(4px);
         
         z-index: 99;
         cursor: pointer;

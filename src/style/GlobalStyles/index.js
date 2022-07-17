@@ -21,6 +21,15 @@ export default createGlobalStyle`
         --box-shadow: 0 0 1em #00000050;
         --border-radius: .3em;
         --transition: background-color .3s ease-in-out, color .3s ease-in-out;
+
+        --brand-color_1: #00ff99;
+        --brand-color_2: #00ccff;
+        --brand-color_3: #9933ff;
+        --brand-color_4: tomato;
+        --brand-color_5: #fff35c;
+        --brand-color_6: #8429de;
+
+        --terciary-background: ${({theme}) => theme.terciaryBG};
     }
 
     *, *::after, *::before {
@@ -34,14 +43,19 @@ export default createGlobalStyle`
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         background-color: var(--primary-background);
+
+        background-color: rgba(255,255,255,0);
+        opacity: 1;
+        background-image: radial-gradient(var(--terciary-background) 0.25px, var(--primary-background) 0.25px);
+        background-size: 5px 5px;
     }
 
     html {
-        font-size: 1.25rem;
+        font-size: 1.20rem;
         /* scroll-behavior: smooth;    */
     
         ${Screen.sm`  
-        font-size: 1.15rem;
+        font-size: 1.10rem;
         `}
 
         ${Screen.md`
@@ -71,8 +85,20 @@ export default createGlobalStyle`
         color: var(--primary-letter-color);
         margin-bottom: 1em;
     }
-
     
+    .error-text{
+        font-size: .75em;
+        color: var(--red);
+    }
+
+    .error-input{
+        color: var(--red) !important;
+        border-color: var(--red) !important;
+        outline-color: var(--red) !important;
+        box-shadow: 0 0 .5em var(--red) inset !important;
+    }
+
+
     /****************  btn  *********************/
 
     button {
@@ -98,6 +124,11 @@ export default createGlobalStyle`
             border-radius: 5px;
         }
     `)}
+
+    .btn[disabled] {
+        opacity: .3;
+        pointer-events: none;
+    }
 
     .btn-1 {
         color: var(--color);

@@ -9,7 +9,7 @@ import { Styles } from "./Styled";
 
 // extra
 import SearchForm from "components/SearchForm";
-import { Logo, NavButton } from "components/__subComponents";
+import { Logo, NavButton } from "components/__subComponents/Nav";
 import { Link } from "react-router-dom";
 
 import useAuth from "hooks/useAuth";
